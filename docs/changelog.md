@@ -6,7 +6,7 @@ sidebar_label: Changelog
 
 # Changelog
 
-GhostMap is developed in public. Every user-visible fix and feature is logged here with the reasoning behind it. For the round-by-round internal log, see the source repository.
+Every user-visible fix and feature in GhostMap is logged here with the reasoning behind it. This is the product changelog; the round-by-round internal log lives alongside the extension source.
 
 ## 0.5.0 - June 18, 2026
 

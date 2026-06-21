@@ -40,7 +40,7 @@ Sin configuración adicional, sin archivos externos. El árbol se reconstruye so
 
 ## Por dónde empezar
 
-- **[Instalación](/get-started/instalacion)** — agrega GhostMap a VS Code en menos de un minuto.
+- **[Instalación](/get-started/instalacion)** — genera un VSIX local e instálalo en VS Code Desktop.
 - **[Primeros 5 minutos](/get-started/primeros-5-minutos)** — escribe tu primer `@ghost` y mira aparecer el árbol.
 - **[Guía / Conceptos](/guide/philosophy)** — entiende los fundamentos: símbolos, anchors, ownership.
 - **[Referencia](/reference/sintaxis)** — sintaxis completa de `@ghost`, comandos y settings.
@@ -53,4 +53,4 @@ Sin configuración adicional, sin archivos externos. El árbol se reconstruye so
 | **Named (Semantic Anchor)** | `// @ghost #nombre description: ...` | Crea un nodo propio en el árbol, con identidad propia. |
 | **Range** | `// @ghost #nombre start ... // @ghost end` | Agrupa una sección completa de código bajo un mismo nodo. |
 
-GhostMap Core —todo lo cubierto en esta documentación— es y seguirá siendo gratuito y de código abierto.
+GhostMap Core —todo lo cubierto en esta documentación— es el alcance documentado para V1. GhostMap es un producto propiedad del *GhostMap project owner* (MarxWellB), distribuido bajo la **GhostMap Free Non-Commercial License**: uso personal, educativo y de evaluación sin costo; cualquier uso comercial, de empresa, en producción o que genere ingresos requiere autorización escrita. Las consultas de licenciamiento comercial van a [getghostmap@proton.me](mailto:getghostmap@proton.me).

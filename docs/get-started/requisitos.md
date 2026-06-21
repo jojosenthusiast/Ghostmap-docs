@@ -15,8 +15,10 @@ GhostMap es una extensión de VS Code. No requiere configuración de servidor, c
 | Visual Studio Code | **1.85 o superior** (declarado en `engines.vscode` del manifiesto). VS Code te avisará si tu versión es anterior. |
 | Sistema operativo | Windows, macOS, Linux. Cualquier plataforma donde corra VS Code. |
 
+GhostMap está pensado para **VS Code Desktop**. VS Code Web (`vscode.dev` / `github.dev`) y entornos remotos pueden restringir el filesystem, el Extension Host o las extensiones instaladas; en V1 no se documentan como superficie verificada. Si usas Remote SSH, Dev Containers, WSL o Codespaces, valida el comportamiento en tu entorno antes de depender de GhostMap para trabajo crítico.
+
 :::note
-GhostMap fue desarrollado y probado principalmente en Windows. Las rutas de archivos usan `path.sep` para compatibilidad cross-platform, pero macOS y Linux no han sido verificados de forma exhaustiva en V1. Si encuentras un problema específico de plataforma, repórtalo en GitHub.
+GhostMap fue desarrollado y probado principalmente en Windows. Las rutas de archivos usan `path.sep` para compatibilidad cross-platform, pero macOS y Linux no han sido verificados de forma exhaustiva en V1. Si encuentras un problema específico de plataforma, escríbenos a [getghostmap@proton.me](mailto:getghostmap@proton.me).
 :::
 
 ## Lenguaje del proyecto
@@ -27,6 +29,27 @@ No necesitas instalar nada extra solo para usar GhostMap. La extensión incluye:
 - **Regex fallback**, que funciona sin ninguna dependencia externa.
 
 La única dependencia opcional que mejora la calidad del árbol es tener activo un **language server (LSP)** para tu lenguaje. GhostMap lo usa automáticamente si está disponible; si no lo está, cae al siguiente nivel de extracción sin que tengas que hacer nada.
+
+## Matriz de calidad por lenguaje
+
+| Tier | Qué puedes esperar | Lenguajes |
+|---|---|---|
+| **Tier 1 — first-class** | Extracción de símbolos y nesting completo en los fixtures actuales. Es el nivel recomendado para evaluar GhostMap. | TypeScript, TSX, JavaScript, JSX, Python, Rust, C#, Java, C++, C, PHP, Ruby, Dart |
+| **Tier 2 — best-effort** | Símbolos principales disponibles; el nesting o algunos constructos pueden ser parciales según el archivo. | Go, Groovy, Objective-C |
+| **Tier 3 — top-level only** | Índice grueso útil para orientación básica; el nesting profundo no debe asumirse como confiable. | Scala, Solidity, Julia, Elixir |
+
+Si tu lenguaje cae en Tier 2 o Tier 3, el fallback sigue intentando darte un árbol útil, pero la precisión esperada es menor que en Tier 1. Para flujos críticos, verifica el resultado contra el archivo antes de usarlo como fuente única de verdad.
+
+:::note Expansión de lenguajes — workstream separado
+Hay aproximadamente 20 lenguajes adicionales planificados (Kotlin, Swift, Haskell, OCaml, Lua, R, Bash, familia SQL, …). Son un workstream aparte, bloqueado por:
+
+- empaquetado de las gramáticas Tree-sitter y procedencia reproducible de los WASM,
+- validez de los queries que escribimos o forkeamos contra la versión exacta de la gramática,
+- cobertura de fixtures por lenguaje en `test/matrix/`,
+- y, en algunos casos, PRs upstream a las propias gramáticas.
+
+Esos lenguajes **no** se anuncian como soportados hasta cumplir ese gate. Si el ítem que abres está en uno de ellos, GhostMap se comportará igual que en un lenguaje desconocido (no aparecerá árbol de símbolos). Ver [Disclaimer](/legal/disclaimer).
+:::
 
 ## RAM y CPU
 

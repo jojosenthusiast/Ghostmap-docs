@@ -66,4 +66,4 @@ Si decides volver, los pasos son los mismos que la primera vez: ver [Instalació
 
 ## ¿Por qué me iría?
 
-Si encontraste un problema, considera abrir un [issue](https://github.com/) antes de irte. El proyecto está en desarrollo activo y los reports concretos son lo que hace que los gaps se cierren.
+Si encontraste un problema, considera mandar un mail a [getghostmap@proton.me](mailto:getghostmap@proton.me) antes de irte. El proyecto está en desarrollo activo y los reports concretos son lo que hace que los gaps se cierren.

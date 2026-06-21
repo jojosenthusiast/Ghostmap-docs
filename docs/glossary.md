@@ -42,7 +42,7 @@ Nombre canónico de la pila de extracción de símbolos. Tres capas en orden: LS
 
 ## Ghost Graph
 
-Forma corta de "Ghost Context Graph". Visualización de las relaciones que vive en el Ghost Index v2. Ver [Roadmap](/roadmap/vision-v2#pilar-2-entender-código-ajeno).
+Forma corta de "Ghost Context Graph". Visualización de las relaciones que vive en el Ghost Index v2. Ver [Roadmap](/roadmap/vision-v2).
 
 ## Ghost Index
 

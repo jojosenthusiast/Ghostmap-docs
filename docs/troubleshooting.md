@@ -63,7 +63,7 @@ Si te molesta en archivos medianos, sube `ghostmap.loading.tinyLineThreshold` a 
 
 ## Reportar un bug
 
-Si los pasos anteriores no resuelven tu problema, abre un issue en el [tracker del proyecto](https://github.com/) con la siguiente información:
+Si los pasos anteriores no resuelven tu problema, escribí a [getghostmap@proton.me](mailto:getghostmap@proton.me) con la siguiente información:
 
 - Versión de VS Code (`Help → About`)
 - Versión de GhostMap (panel de Extensions)

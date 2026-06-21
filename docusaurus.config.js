@@ -11,10 +11,11 @@ const config = {
     v4: true,
   },
 
-  url: 'https://docs.ghostmap.dev',
+  url: 'https://ghostmap-docs.vercel.app',
   baseUrl: '/',
 
-  // Required for `npm run deploy` to push to gh-pages on the correct repo.
+  // Repo identity (gh-pages deploy is no longer the live channel; site is on
+  // Vercel). Kept for editUrl and tooling references.
   organizationName: 'MarxWellB',
   projectName: 'Ghostmap-docs',
   deploymentBranch: 'gh-pages',
@@ -66,7 +67,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/MarxWellB/Ghostmap-docs/edit/main/',
+          // editUrl is omitted while the docs repository is private.
+          // Add it back only after a public repository URL exists.
           showLastUpdateTime: true,
         },
         blog: false,
@@ -112,13 +114,13 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/',
-            label: 'GitHub',
+            href: 'mailto:getghostmap@proton.me',
+            label: 'Contacto',
             position: 'right',
           },
           {
-            href: 'https://marketplace.visualstudio.com/',
-            label: 'Instalar para VS Code',
+            to: '/get-started/instalacion',
+            label: 'Instalar (VSIX local)',
             position: 'right',
             className: 'navbar-cta',
           },
@@ -133,7 +135,6 @@ const config = {
               {label: 'Inicio', to: '/'},
               {label: 'Roadmap', to: '/roadmap/vision-v2'},
               {label: 'Estado del proyecto', to: '/status/estado-del-proyecto'},
-              {label: 'Changelog', to: '/changelog'},
             ],
           },
           {
@@ -142,7 +143,6 @@ const config = {
               {label: 'Guía rápida', to: '/get-started/instalacion'},
               {label: 'Conceptos', to: '/guide/symbol'},
               {label: 'Referencia', to: '/reference/sintaxis'},
-              {label: 'Solución de problemas', to: '/troubleshooting'},
               {label: 'FAQ', to: '/faq'},
             ],
           },
@@ -153,18 +153,19 @@ const config = {
               {label: 'Terms of Use', to: '/legal/terms'},
               {label: 'Third-Party Notices', to: '/legal/notices'},
               {label: 'Disclaimer', to: '/legal/disclaimer'},
+              {label: 'Consultas legales (email)', href: 'mailto:getghostmap@proton.me'},
             ],
           },
           {
             title: 'Comunidad',
             items: [
-              {label: 'GitHub', href: 'https://github.com/'},
-              {label: 'Issues', href: 'https://github.com/'},
-              {label: 'Discusiones', href: 'https://github.com/'},
+              {label: 'Support GhostMap', href: 'https://ghostmap-liard.vercel.app/#support'},
+              {label: 'getghostmap@proton.me', href: 'mailto:getghostmap@proton.me'},
+              {label: 'Reportar un bug', href: 'mailto:getghostmap@proton.me'},
             ],
           },
         ],
-        copyright: `MIT Licensed · © ${new Date().getFullYear()} GhostMap`,
+        copyright: `Free for personal, educational &amp; evaluation use · Commercial use needs a license · © ${new Date().getFullYear()} GhostMap`,
       },
       prism: {
         theme: prismThemes.dracula,
@@ -210,14 +211,6 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 4,
       },
-      // Algolia DocSearch placeholder. Apply at https://docsearch.algolia.com/apply
-      // then fill in the credentials below and uncomment.
-      // algolia: {
-      //   appId: 'YOUR_APP_ID',
-      //   apiKey: 'YOUR_SEARCH_API_KEY',
-      //   indexName: 'ghostmap',
-      //   contextualSearch: true,
-      // },
     }),
 };
 

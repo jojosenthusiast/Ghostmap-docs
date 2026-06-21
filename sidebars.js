@@ -64,11 +64,16 @@ const sidebars = {
       type: 'category',
       label: 'Ayuda',
       items: [
-        'troubleshooting',
         'faq',
+        'troubleshooting',
         'glossary',
         'uninstall',
       ],
+    },
+    {
+      type: 'doc',
+      id: 'changelog',
+      label: 'Changelog',
     },
     {
       type: 'category',
@@ -82,7 +87,6 @@ const sidebars = {
       label: 'Estado',
       items: [
         'status/estado-del-proyecto',
-        'changelog',
       ],
     },
     {

@@ -1,8 +1,8 @@
 # GhostMap Documentation Site
 
-This repository hosts the user-facing documentation for [GhostMap](https://github.com/MarxWellB/genesis), a VS Code extension that turns `@ghost` annotations into a navigable Ghost Tree.
+This repository hosts the user-facing documentation for [GhostMap](https://ghostmap-liard.vercel.app/), a VS Code extension that turns `@ghost` annotations into a navigable Ghost Tree.
 
-The site is built with [Docusaurus 3](https://docusaurus.io/) and deployed to GitHub Pages.
+The site is built with [Docusaurus 3](https://docusaurus.io/) and is deployed on Vercel at [https://ghostmap-docs.vercel.app/](https://ghostmap-docs.vercel.app/).
 
 ## Local development
 
@@ -23,7 +23,7 @@ The static output is written to `build/` and can be served from any static host.
 
 ## Deploy
 
-GitHub Pages deployment happens via the standard Docusaurus deploy command; see `docusaurus.config.js` for the deployment configuration.
+The docs site is deployed on Vercel at [https://ghostmap-docs.vercel.app/](https://ghostmap-docs.vercel.app/). Vercel builds from this repository's default branch using the standard Docusaurus build (`npm run build`, output in `build/`); see `docusaurus.config.js` for site configuration. Publish the marketing site after a docs deploy completes, because the marketing site links to the rendered docs routes.
 
 ## Content structure
 
@@ -52,7 +52,7 @@ To add a new page:
 3. Run `npm start` to verify the page renders and links resolve.
 4. Open a pull request.
 
-## Related repositories
+## Related surfaces
 
-- [`MarxWellB/genesis`](https://github.com/MarxWellB/genesis): the extension source code.
-- [`MarxWellB/Ghostmap-site`](https://github.com/MarxWellB/Ghostmap-site): the marketing site.
+- Marketing site: [ghostmap-liard.vercel.app](https://ghostmap-liard.vercel.app/).
+- Extension source: source-available; the public repo URL will be announced at release. For pre-release access write to [getghostmap@proton.me](mailto:getghostmap@proton.me).

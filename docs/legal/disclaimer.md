@@ -42,6 +42,19 @@ Even on Tier 1 languages, the following are known not to work today:
 
 These are tracked for resolution in upcoming rounds.
 
+## Language pack expansion (separate workstream)
+
+Roughly 20 additional languages (Kotlin, Swift, Haskell, OCaml, Clojure, Lua, R, Bash, the SQL family, …) are on the roadmap but **not supported today**. The expansion is gated on a set of validation and packaging risks surfaced by prior audits of the existing 19-grammar bundle:
+
+- **Dart WASM load failure risk** — the Dart grammar has been observed to fail to load on some Electron/Node combinations and silently fall back to regex.
+- **Invalid Elixir / Objective-C queries** — existing query files reference nodes the upstream grammars do not always expose; new queries we ship must be validated against the grammar version we bundle.
+- **Weak Julia coverage** — many definition shapes (macros, `@inline`-emitted defs) are not extracted; new similar-shape languages need a fixture set proving the shapes we claim to cover.
+- **Duplicate symbol issues** — some grammar packs expose colliding WASM symbol names that mis-load at runtime without a duplicate-symbol guard.
+- **Non-reproducible WASM provenance** — today's WASMs are checked-in artifacts; the expansion needs a reproducible build job before adding more.
+- **Fallback masking broken grammars** — the LSP → Tree-sitter → regex chain hides grammar regressions; the expansion needs a per-grammar load + sample-query smoke that fails loudly.
+
+Until a candidate language passes all of those gates (and gets a fixture row in the matrix tests), it does not appear in [Requisitos](/get-started/requisitos) or the language sections of the marketing site.
+
 ## "Navigational aid" framing
 
 The Ghost Tree is a fast, opinionated navigational view of your code. It is **not** a complete semantic model of your program. Do not use it as the sole source of truth for:
@@ -63,8 +76,8 @@ GhostMap is engineered to stay responsive on files up to 60,000 lines and under 
 
 ## Liability
 
-The full disclaimer of warranty and limitation of liability is in the [Terms of Use](/legal/terms). The "no warranty" clause of the MIT License governs your use of this software.
+The full disclaimer of warranty and limitation of liability is in the GhostMap Terms of Use, included with the source repository as `LICENSE` (further questions: getghostmap@proton.me). GhostMap is provided as-is under the GhostMap Free Non-Commercial License.
 
 ## Reporting an issue
 
-If you encounter a behavior that contradicts this documentation, please open an issue on the project's issue tracker so the docs can be updated or the bug fixed.
+If you encounter a behavior that contradicts this documentation, write to [getghostmap@proton.me](mailto:getghostmap@proton.me) so the docs can be updated or the bug fixed. Legal, licensing, and privacy correspondence go to the same address.

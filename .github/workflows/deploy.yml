@@ -1,22 +1,28 @@
-name: Deploy docs to GitHub Pages
+name: Docs build check
+
+# The live docs site is deployed by Vercel (see README.md and
+# docusaurus.config.js -> url: https://ghostmap-docs.vercel.app).
+# This workflow does NOT deploy anywhere. It only validates that the
+# Docusaurus build succeeds on every push / PR, so a broken build is
+# caught before Vercel picks it up.
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: docs-build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: Build
+    name: Build docs (validation only, no deploy)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -36,23 +42,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
