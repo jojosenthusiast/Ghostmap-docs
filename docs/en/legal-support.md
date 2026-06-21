@@ -33,7 +33,7 @@ Supporter benefits are not pricing tiers and do not transfer license rights.
 
 | Document | Where to read it |
 | --- | --- |
-| Full license text | [Privacy Policy / Terms / Notices section](/legal/privacy) and the `LICENSE` file shipped inside the VSIX. |
+| Full license text | The `LICENSE` file shipped inside the VSIX. The legal section also summarizes the [Terms of Use](/legal/terms), [Privacy Policy](/legal/privacy), and [Third-Party Notices](/legal/notices). |
 | Privacy Policy | [/legal/privacy](/legal/privacy) |
 | Terms of Use | [/legal/terms](/legal/terms) |
 | Third-Party Notices | [/legal/notices](/legal/notices) |
