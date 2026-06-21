@@ -1,0 +1,44 @@
+name: Docs build check
+
+# The live docs site is deployed by Vercel (see README.md and
+# docusaurus.config.js -> url: https://ghostmap-docs.vercel.app).
+# This workflow does NOT deploy anywhere. It only validates that the
+# Docusaurus build succeeds on every push / PR, so a broken build is
+# caught before Vercel picks it up.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build docs (validation only, no deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build

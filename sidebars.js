@@ -15,6 +15,7 @@ const sidebars = {
       items: [
         'get-started/requisitos',
         'get-started/instalacion',
+        'vsix-install',
         'get-started/primeros-5-minutos',
       ],
     },
@@ -46,6 +47,7 @@ const sidebars = {
         'reference/diagnostics',
         'reference/settings',
         'reference/rendimiento',
+        'keyboard-shortcuts',
       ],
     },
     {
@@ -55,7 +57,23 @@ const sidebars = {
         'architecture/arquitectura-v1',
         'architecture/loading-policy',
         'architecture/local-state',
+        'data-location',
       ],
+    },
+    {
+      type: 'category',
+      label: 'Ayuda',
+      items: [
+        'faq',
+        'troubleshooting',
+        'glossary',
+        'uninstall',
+      ],
+    },
+    {
+      type: 'doc',
+      id: 'changelog',
+      label: 'Changelog',
     },
     {
       type: 'category',
@@ -69,6 +87,16 @@ const sidebars = {
       label: 'Estado',
       items: [
         'status/estado-del-proyecto',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Legal',
+      items: [
+        'legal/privacy',
+        'legal/terms',
+        'legal/notices',
+        'legal/disclaimer',
       ],
     },
   ],

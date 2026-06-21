@@ -8,9 +8,9 @@ sidebar_label: Rendimiento
 
 Esta página documenta los números reales del sistema en V1, cómo se comporta bajo distintas condiciones, y qué palancas tienes para ajustarlo.
 
-## El modelo de capas
+## El Ghost Engine
 
-GhostMap ejecuta extracción en tres pasos en orden de preferencia:
+El **Ghost Engine** es la pila de extracción de símbolos. Ejecuta en tres pasos en orden de preferencia:
 
 ```
 LSP (language server)
@@ -18,7 +18,7 @@ LSP (language server)
     → si no hay gramática disponible: regex fallback
 ```
 
-Cada capa es más rápida y menos precisa que la anterior. En la mayoría de los casos, LSP da el mejor resultado. En archivos pequeños con LSP activo, GhostMap hace un cortocircuito y omite Tree-sitter y regex completamente (ahorra hasta 1.2 s de carga de WASM).
+Cada capa es más rápida y menos precisa que la anterior. En la mayoría de los casos, LSP da el mejor resultado. En archivos pequeños con LSP activo, el Ghost Engine hace un cortocircuito y omite Tree-sitter y regex completamente (ahorra hasta 1.2 s de carga de WASM).
 
 ## Números de referencia
 
@@ -39,8 +39,8 @@ El escenario más común después de la primera apertura es siempre el primero: 
 Para archivos de 50,000 líneas o más, GhostMap usa un scanner basado en regex que cede el control al event loop de VS Code entre lotes — el editor no se congela mientras analiza.
 
 - Tamaño de lote: 4,000 líneas por iteración.
-- Primeros 50 símbolos se publican en el árbol antes de terminar el análisis completo — el árbol aparece rápido y se va completando.
-- El árbol en construcción se actualiza cada 250 ms (publish coalescer), no en cada símbolo encontrado — evita que el panel parpadee.
+- Primeros 50 símbolos se publican en el árbol antes de terminar el análisis completo. El árbol aparece rápido y se va completando.
+- El árbol en construcción se actualiza cada 250 ms (publish coalescer), no en cada símbolo encontrado. Esto evita que el panel parpadee.
 
 **Resultado medido en C++ 60k líneas:** scan puro de ~33 ms de tiempo de CPU efectivo (vs ~19.5 s del overhead anterior a la optimización con `setTimeout`).
 
@@ -57,14 +57,14 @@ Con el sistema al 80–90% de RAM en uso:
 Cambiar de archivo rápido (< 150 ms entre switches) activa un mecanismo de backpressure:
 
 - GhostMap espera 200 ms antes de iniciar el refresh del archivo destino.
-- Archivos de ≤ 50 líneas (`ghostmap.loading.tinyLineThreshold`) ignoran este retraso — aparecen al instante.
+- Archivos de ≤ 50 líneas (`ghostmap.loading.tinyLineThreshold`) ignoran este retraso. Aparecen al instante.
 - Si el usuario sigue cambiando tabs durante ese delay, solo se procesa el último destino. Los intermedios se descartan.
 
 Esto evita que abrir 10 tabs seguidos encole 10 análisis completos.
 
 ## Watchdog
 
-Si el árbol no se actualiza en 1 segundo después de cambiar de archivo, GhostMap tiene un watchdog que detecta el estado y lanza un refresh de recuperación — pero solo si no hay ya un refresh en vuelo para ese mismo archivo. Esto previene doubles LSP calls bajo estrés.
+Si el árbol no se actualiza en 1 segundo después de cambiar de archivo, GhostMap tiene un watchdog que detecta el estado y lanza un refresh de recuperación, pero solo si no hay ya un refresh en vuelo para ese mismo archivo. Esto previene doubles LSP calls bajo estrés.
 
 ## Límites y cómo ajustarlos
 

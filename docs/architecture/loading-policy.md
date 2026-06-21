@@ -22,7 +22,7 @@ Sin límites, abrir un archivo enorme (decenas o cientos de miles de líneas) di
 > "Este archivo tiene más de 60,000 líneas. GhostMap no recalculó el árbol automáticamente para evitar bloquear el editor. Si el árbol mostrado se ve desactualizado, puedes habilitar `ghostmap.loading.allowManualLargeFileRefresh` y usar `Refresh` manualmente."
 
 :::tip Relación con v2
-El [Ghost Project Index](/roadmap/vision-v2#ghost-project-index--ghost-watcher) apunta justamente a eliminar este límite — con un índice persistente y actualización incremental, ya no haría falta recalcular archivos completos al abrirlos, sin importar su tamaño.
+El [Ghost Index v2](/roadmap/vision-v2) apunta a reducir este límite con un índice persistente y actualización incremental, para evitar recalcular archivos completos al abrirlos. Incluso en V2 seguirán haciendo falta presupuestos, backpressure y pruebas de recuperación para proteger el Extension Host en archivos extremos.
 :::
 
 ## Siguiente paso
