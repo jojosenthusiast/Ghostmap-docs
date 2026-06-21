@@ -114,6 +114,11 @@ const config = {
             label: 'Docs',
           },
           {
+            to: '/en/overview',
+            label: 'English',
+            position: 'left',
+          },
+          {
             href: 'mailto:getghostmap@proton.me',
             label: 'Contacto',
             position: 'right',
@@ -144,6 +149,14 @@ const config = {
               {label: 'Conceptos', to: '/guide/symbol'},
               {label: 'Referencia', to: '/reference/sintaxis'},
               {label: 'FAQ', to: '/faq'},
+            ],
+          },
+          {
+            title: 'English',
+            items: [
+              {label: 'Overview (EN)', to: '/en/overview'},
+              {label: 'Install / Access (EN)', to: '/en/install'},
+              {label: 'Legal & Support (EN)', to: '/en/legal-support'},
             ],
           },
           {

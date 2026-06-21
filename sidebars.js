@@ -10,6 +10,16 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'English',
+      collapsed: false,
+      items: [
+        'en/overview',
+        'en/install',
+        'en/legal-support',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Empezar',
       collapsed: false,
       items: [
