@@ -6,8 +6,7 @@ slug: /en/install
 
 # Install & Access — English quick-start
 
-> **Detailed Spanish guide:** [Instalación (ES)](/get-started/instalacion).
-> This page is the short English version.
+> **English start page.** For more detail, see [Instalación (ES)](/get-started/instalacion).
 
 ## Current install reality
 

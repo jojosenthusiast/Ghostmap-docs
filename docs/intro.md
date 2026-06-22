@@ -7,6 +7,10 @@ sidebar_label: Introducción
 
 # Estructura de proyecto, dentro de tu código
 
+> **English start pages:** [Overview](/en/overview), [Install / Access](/en/install),
+> and [Legal & Support](/en/legal-support). Esta sección en español tiene la
+> referencia detallada.
+
 GhostMap es una extensión de VS Code que convierte comentarios estructurados (`@ghost`) en un mapa navegable de tu proyecto: un árbol semántico que vive junto al código, no en una herramienta externa.
 
 ## El problema
@@ -40,6 +44,7 @@ Sin configuración adicional, sin archivos externos. El árbol se reconstruye so
 
 ## Por dónde empezar
 
+- **[English overview](/en/overview)** — start here if you want the short English path.
 - **[Instalación](/get-started/instalacion)** — genera un VSIX local e instálalo en VS Code Desktop.
 - **[Primeros 5 minutos](/get-started/primeros-5-minutos)** — escribe tu primer `@ghost` y mira aparecer el árbol.
 - **[Guía / Conceptos](/guide/philosophy)** — entiende los fundamentos: símbolos, anchors, ownership.

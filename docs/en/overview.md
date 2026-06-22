@@ -6,9 +6,8 @@ slug: /en/overview
 
 # GhostMap — English overview
 
-> **English / Spanish.** This English section is a short entry point. The main
-> documentation is in Spanish, with links back to the matching pages when more
-> detail is available.
+> **English first.** This is the default start page. Spanish pages hold the
+> detailed reference where English pages are still short.
 
 ## What GhostMap is
 

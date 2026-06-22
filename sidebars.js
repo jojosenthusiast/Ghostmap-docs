@@ -4,19 +4,19 @@
 const sidebars = {
   docsSidebar: [
     {
-      type: 'doc',
-      id: 'intro',
-      label: 'Introducción',
-    },
-    {
       type: 'category',
-      label: 'English',
+      label: 'English start',
       collapsed: false,
       items: [
         'en/overview',
         'en/install',
         'en/legal-support',
       ],
+    },
+    {
+      type: 'doc',
+      id: 'intro',
+      label: 'Docs detallados (ES)',
     },
     {
       type: 'category',

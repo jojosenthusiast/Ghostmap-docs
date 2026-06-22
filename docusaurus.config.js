@@ -108,15 +108,15 @@ const config = {
         },
         items: [
           {
+            to: '/en/overview',
+            label: 'Start (EN)',
+            position: 'left',
+          },
+          {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Docs',
-          },
-          {
-            to: '/en/overview',
-            label: 'English',
-            position: 'left',
+            label: 'Docs (ES)',
           },
           {
             href: 'mailto:getghostmap@proton.me',
@@ -124,8 +124,8 @@ const config = {
             position: 'right',
           },
           {
-            to: '/get-started/instalacion',
-            label: 'Instalar (VSIX local)',
+            to: '/en/install',
+            label: 'Install',
             position: 'right',
             className: 'navbar-cta',
           },
@@ -137,22 +137,23 @@ const config = {
           {
             title: 'Producto',
             items: [
-              {label: 'Inicio', to: '/'},
+              {label: 'Start (EN)', to: '/en/overview'},
+              {label: 'Docs (ES)', to: '/'},
               {label: 'Roadmap', to: '/roadmap/vision-v2'},
               {label: 'Estado del proyecto', to: '/status/estado-del-proyecto'},
             ],
           },
           {
-            title: 'Documentación',
+            title: 'Docs (ES)',
             items: [
-              {label: 'Guía rápida', to: '/get-started/instalacion'},
+              {label: 'Instalación detallada', to: '/get-started/instalacion'},
               {label: 'Conceptos', to: '/guide/symbol'},
               {label: 'Referencia', to: '/reference/sintaxis'},
               {label: 'FAQ', to: '/faq'},
             ],
           },
           {
-            title: 'English',
+            title: 'English start',
             items: [
               {label: 'Overview (EN)', to: '/en/overview'},
               {label: 'Install / Access (EN)', to: '/en/install'},

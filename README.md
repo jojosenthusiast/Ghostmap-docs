@@ -27,13 +27,12 @@ The docs site is deployed on Vercel at [https://ghostmap-docs.vercel.app/](https
 
 ## Languages
 
-Documentation is available in English and Spanish:
+Start in English. Spanish has the detailed reference pages:
 
-- **Spanish** — the main documentation: requisitos,
-  instalación, conceptos, sintaxis, referencia de settings, arquitectura,
-  estado del proyecto, roadmap.
-- **English** — short entry pages under `docs/en/`: overview, install/access,
-  and legal/support.
+- **English** — default entry pages under `docs/en/`: overview,
+  install/access, and legal/support.
+- **Spanish** — detailed pages: requisitos, instalación, conceptos, sintaxis,
+  referencia de settings, arquitectura, estado del proyecto, roadmap.
 - **Legal documents (English-authoritative)** — `docs/legal/*` and the
   shipped `LICENSE` / `THIRD_PARTY_NOTICES.txt` are in English as the
   canonical legal version. The Spanish docs reference them, they are not
@@ -43,8 +42,8 @@ Documentation is available in English and Spanish:
 
 | Folder | Purpose |
 |---|---|
-| `docs/intro.md` | Landing page of the documentation (Spanish). |
 | `docs/en/` | English overview, install/access, legal & support summary. |
+| `docs/intro.md` | Spanish detailed docs landing page. |
 | `docs/get-started/` | Requisitos, instalación, primeros 5 minutos (ES). |
 | `docs/guide/` | Conceptos: symbols, anchors, ownership, validity gate, etc. (ES). |
 | `docs/reference/` | Syntax, Ghost Tree, diagnostics, settings, rendimiento (ES). |
@@ -53,13 +52,13 @@ Documentation is available in English and Spanish:
 | `docs/status/` | Estado del proyecto y limitaciones conocidas (ES). |
 | `docs/changelog.md` | User-visible release notes. |
 | `docs/legal/` | Privacy Policy, Terms of Use, Third-Party Notices, Disclaimer (English-authoritative). |
-| `sidebars.js` | Sidebar layout (includes both the English section and the Spanish categories). |
-| `docusaurus.config.js` | Site configuration (navbar has an `English` entry and the footer has an `English` column). |
+| `sidebars.js` | Sidebar layout (English start pages first, then Spanish details). |
+| `docusaurus.config.js` | Site configuration (navbar and footer lead with English start pages). |
 
 ## Contributing to the docs
 
-The main docs are Spanish. English pages are short entry pages, not a full
-translation. The legal section and the changelog are English-authoritative.
+English pages are short start pages. Spanish pages hold the detailed product
+docs. The legal section and changelog are English-authoritative.
 
 To add a new page:
 
