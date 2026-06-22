@@ -10,9 +10,8 @@ sidebar_label: Disclaimer
 
 **Effective date:** June 18, 2026 · **Version:** 1.0
 
-:::caution
-GhostMap is currently in pre-release. Some features described in this documentation are best-effort. Read this page before relying on GhostMap output for critical work.
-:::
+> **Important:**
+> GhostMap is currently in pre-release. Some features described in this documentation are best-effort. Read this page before relying on GhostMap output for critical work.
 
 ## Pre-release software
 
@@ -46,12 +45,12 @@ These are tracked for resolution in upcoming rounds.
 
 Roughly 20 additional languages (Kotlin, Swift, Haskell, OCaml, Clojure, Lua, R, Bash, the SQL family, …) are on the roadmap but **not supported today**. The expansion is gated on a set of validation and packaging risks surfaced by prior audits of the existing 19-grammar bundle:
 
-- **Dart WASM load failure risk** — the Dart grammar has been observed to fail to load on some Electron/Node combinations and silently fall back to regex.
-- **Invalid Elixir / Objective-C queries** — existing query files reference nodes the upstream grammars do not always expose; new queries we ship must be validated against the grammar version we bundle.
-- **Weak Julia coverage** — many definition shapes (macros, `@inline`-emitted defs) are not extracted; new similar-shape languages need a fixture set proving the shapes we claim to cover.
-- **Duplicate symbol issues** — some grammar packs expose colliding WASM symbol names that mis-load at runtime without a duplicate-symbol guard.
-- **Non-reproducible WASM provenance** — today's WASMs are checked-in artifacts; the expansion needs a reproducible build job before adding more.
-- **Fallback masking broken grammars** — the LSP → Tree-sitter → regex chain hides grammar regressions; the expansion needs a per-grammar load + sample-query smoke that fails loudly.
+- **Dart WASM load failure risk**: the Dart grammar has been observed to fail to load on some Electron/Node combinations and silently fall back to regex.
+- **Invalid Elixir / Objective-C queries**: existing query files reference nodes the upstream grammars do not always expose; new queries we ship must be validated against the grammar version we bundle.
+- **Weak Julia coverage**: many definition shapes (macros, `@inline`-emitted defs) are not extracted; new similar-shape languages need a fixture set proving the shapes we claim to cover.
+- **Duplicate symbol issues**: some grammar packs expose colliding WASM symbol names that mis-load at runtime without a duplicate-symbol guard.
+- **Non-reproducible WASM provenance**: today's WASMs are checked-in artifacts; the expansion needs a reproducible build job before adding more.
+- **Fallback masking broken grammars**: the LSP → Tree-sitter → regex chain hides grammar regressions; the expansion needs a per-grammar load + sample-query smoke that fails loudly.
 
 Until a candidate language passes all of those gates (and gets a fixture row in the matrix tests), it does not appear in [Requisitos](/get-started/requisitos) or the language sections of the marketing site.
 

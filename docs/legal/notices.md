@@ -44,7 +44,7 @@ The following 19 grammars ship as precompiled WebAssembly files inside the exten
 
 ### Provenance note
 
-The exact git commit/tag used to compile each shipped WASM artifact is not recorded in this repository — the WASMs are checked-in artifacts rather than reproducibly built. Each per-component `SOURCE.txt` records the upstream default-branch HEAD commit at the time the LICENSE text was fetched. The shipped LICENSE files are the best available license notices for the bundled artifacts under that provenance disclosure; if the upstream license for a grammar later changes, the notice that shipped with a given release continues to govern that release. This provenance gap is acknowledged here, not hidden, and will be closed when the WASM build job becomes reproducible (see the language-pack expansion gate in [Disclaimer](/legal/disclaimer)).
+The exact git commit/tag used to compile each shipped WASM artifact is not recorded in this repository: the WASMs are checked-in artifacts rather than reproducibly built. Each per-component `SOURCE.txt` records the upstream default-branch HEAD commit at the time the LICENSE text was fetched. The shipped LICENSE files are the best available license notices for the bundled artifacts under that provenance disclosure; if the upstream license for a grammar later changes, the notice that shipped with a given release continues to govern that release. This provenance gap is acknowledged here, not hidden, and will be closed when the WASM build job becomes reproducible (see the language-pack expansion gate in [Disclaimer](/legal/disclaimer)).
 
 ## VS Code Extension API
 

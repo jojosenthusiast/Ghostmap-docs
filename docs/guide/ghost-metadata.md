@@ -24,7 +24,7 @@ function login() {}
 Resultado en el árbol:
 
 ```text
-login          (todo) — validar tokens JWT
+login          (todo): validar tokens JWT
 ```
 
 **No** se genera un nodo independiente llamado `login` más un nodo Ghost separado. La metadata vive *dentro* del nodo `login`.

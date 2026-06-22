@@ -8,9 +8,8 @@ sidebar_label: Instalación
 
 GhostMap es una extensión de Visual Studio Code. No necesitas configurar nada externo: ni servidores, ni cuentas, ni archivos de configuración antes de empezar.
 
-:::note
-¿Tienes dudas sobre si GhostMap funcionará en tu máquina o con archivos muy grandes? Consulta [Requisitos mínimos](/get-started/requisitos) antes de instalar.
-:::
+> **Nota:**
+> ¿Tienes dudas sobre si GhostMap funcionará en tu máquina o con archivos muy grandes? Consulta [Requisitos mínimos](/get-started/requisitos) antes de instalar.
 
 ## Estado de distribución
 
@@ -26,12 +25,12 @@ Hasta que Marketplace y Open VSX estén publicados, el camino oficial es el VSIX
 
 ## Editor
 
-- Visual Studio Code (versión reciente, 1.85 o superior — ver [Requisitos](/get-started/requisitos)).
+- Visual Studio Code (versión reciente, 1.85 o superior: ver [Requisitos](/get-started/requisitos)).
 - Un proyecto en alguno de los 19 lenguajes soportados: JavaScript, TypeScript, JSX, TSX, Python, PHP, Java, C#, Go, Rust, C, C++, Ruby, Dart, Elixir, Groovy, Julia, Objective-C, Scala o Solidity.
 
 Si tu lenguaje no tiene un *language server* activo, GhostMap usa automáticamente el mejor respaldo local disponible. En lenguajes Tier 1 suele conservar buen detalle; en Tier 2 o Tier 3 puede producir un árbol más parcial. Consulta [Requisitos mínimos](/get-started/requisitos#matriz-de-calidad-por-lenguaje) antes de tratar el resultado como fuente única de verdad.
 
-## Pasos (camino actual — VSIX por contacto directo)
+## Pasos (camino actual: VSIX por contacto directo)
 
 1. Escribí a [getghostmap@proton.me](mailto:getghostmap@proton.me) pidiendo el VSIX. Te respondemos con el archivo `ghostmap-0.5.0.vsix`. Más detalle en **[Instalar desde un archivo VSIX](/vsix-install)**.
 2. Abre VS Code.
@@ -39,9 +38,8 @@ Si tu lenguaje no tiene un *language server* activo, GhostMap usa automáticamen
 4. Menú **"..."** arriba a la derecha → **Install from VSIX...** → selecciona el `.vsix` recibido.
 5. Recarga VS Code cuando te lo pida.
 
-:::note
-El repositorio `genesis` (código fuente) es privado. Clonarlo y empaquetar localmente solo es posible si te otorgaron acceso explícito; no es un camino de auto-servicio.
-:::
+> **Nota:**
+> El repositorio `genesis` (código fuente) es privado. Clonarlo y empaquetar localmente solo es posible si te otorgaron acceso explícito; no es un camino de auto-servicio.
 
 Alternativa por línea de comandos:
 
@@ -58,7 +56,7 @@ Estos pasos quedan documentados para usarse cuando los canales correspondientes 
 
 ## Verifica que quedó instalada
 
-Abre cualquier archivo de código en un lenguaje soportado. En la barra lateral de VS Code debería aparecer un nuevo panel llamado **GhostMap** (icono de fantasma). Si el archivo todavía no tiene anotaciones `@ghost`, el panel se mostrará vacío — es el comportamiento esperado.
+Abre cualquier archivo de código en un lenguaje soportado. En la barra lateral de VS Code debería aparecer un nuevo panel llamado **GhostMap** (icono de fantasma). Si el archivo todavía no tiene anotaciones `@ghost`, el panel se mostrará vacío: es el comportamiento esperado.
 
 ## Siguiente paso
 

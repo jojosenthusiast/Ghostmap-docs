@@ -20,7 +20,7 @@ function login() {}
 Resultado en el árbol:
 
 ```text
-login   (todo) — este método no maneja refresh tokens todavía
+login   (todo): este método no maneja refresh tokens todavía
 ```
 
 No hay límite de formato sobre el texto: puede ser una frase corta, una referencia a un ticket, o una nota arquitectónica más larga.

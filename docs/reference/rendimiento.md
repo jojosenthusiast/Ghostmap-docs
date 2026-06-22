@@ -28,15 +28,14 @@ Cada capa es más rápida y menos precisa que la anterior. En la mayoría de los
 | Archivo pequeño (< 500 líneas) con LSP activo | **200 – 600 ms** |
 | Archivo 60k líneas, scanner progresivo | **~33 ms** de scan puro |
 | LSP cold start en condiciones normales | **800 ms – 3 s** |
-| LSP cold start bajo presión de RAM (80–90%) | **5 – 35 s** (GhostMap no espera — cae al fallback a los 800 ms) |
+| LSP cold start bajo presión de RAM (80–90%) | **5 – 35 s** (GhostMap no espera: cae al fallback a los 800 ms) |
 
-:::tip Ghost Index es la clave
-El escenario más común después de la primera apertura es siempre el primero: < 50 ms desde snapshot. La primera apertura de un archivo paga el costo de extracción; todas las siguientes no.
-:::
+> **Ghost Index es la clave:**
+> El escenario más común después de la primera apertura es siempre el primero: < 50 ms desde snapshot. La primera apertura de un archivo paga el costo de extracción; todas las siguientes no.
 
 ## El scanner progresivo (archivos grandes)
 
-Para archivos de 50,000 líneas o más, GhostMap usa un scanner basado en regex que cede el control al event loop de VS Code entre lotes — el editor no se congela mientras analiza.
+Para archivos de 50,000 líneas o más, GhostMap usa un scanner basado en regex que cede el control al event loop de VS Code entre lotes: el editor no se congela mientras analiza.
 
 - Tamaño de lote: 4,000 líneas por iteración.
 - Primeros 50 símbolos se publican en el árbol antes de terminar el análisis completo. El árbol aparece rápido y se va completando.

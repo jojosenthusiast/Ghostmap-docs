@@ -10,9 +10,8 @@ sidebar_label: Privacy Policy
 
 **Effective date:** June 20, 2026 · **Version:** 1.1
 
-:::tip The whole policy in one line
-The GhostMap extension runs on your machine, makes no network calls of its own, transmits no source code or metadata off your machine, ships no telemetry or analytics, and does not communicate with the maintainers. Site and support-platform caveats are covered below.
-:::
+> **The whole policy in one line:**
+> The GhostMap extension runs on your machine, makes no network calls of its own, transmits no source code or metadata off your machine, ships no telemetry or analytics, and does not communicate with the maintainers. Site and support-platform caveats are covered below.
 
 ## 1. What data we collect
 
@@ -63,7 +62,7 @@ This statement describes the current technical design and maintainer data postur
 
 ## 9. Future enterprise-oriented roadmap and server services
 
-The enterprise-oriented integrations described in [Roadmap — Visión v2](/roadmap/vision-v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today** and no part of GhostMap currently communicates with any of those services. Nothing in this policy should be read as a commitment that those integrations will exist, or that they will preserve the current local-only posture.
+The enterprise-oriented integrations described in [Roadmap: Visión v2](/roadmap/vision-v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today** and no part of GhostMap currently communicates with any of those services. Nothing in this policy should be read as a commitment that those integrations will exist, or that they will preserve the current local-only posture.
 
 If a future version of GhostMap ever introduces an optional feature that involves data collection or transmission (for example, an optional opt-in telemetry signal, or an Enterprise capability with server services), that feature will be:
 

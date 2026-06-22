@@ -6,9 +6,8 @@ sidebar_label: Arquitectura v1
 
 # Arquitectura actual (v1 / MVP)
 
-:::info
-Esta sección es para devs curiosos y colaboradores. No es necesaria para el uso diario de GhostMap.
-:::
+> **Nota:**
+> Esta sección es para devs curiosos y colaboradores. No es necesaria para el uso diario de GhostMap.
 
 ## Diagrama de flujo
 
@@ -36,7 +35,7 @@ Este pipeline completo se ejecuta:
 - Al abrir o activar un editor.
 - En cada edición, con un pequeño retraso (debounce) para no recalcular en cada tecla.
 
-En V1, no hay persistencia completa entre sesiones a nivel de workspace — cada apertura de archivo repite el cálculo. La excepción es la caché de continuidad por documento descrita en [Local State](/architecture/local-state). El [roadmap v2](/roadmap/vision-v2) plantea eliminar este recálculo por completo con un índice persistente de workspace.
+En V1, no hay persistencia completa entre sesiones a nivel de workspace: cada apertura de archivo repite el cálculo. La excepción es la caché de continuidad por documento descrita en [Local State](/architecture/local-state). El [roadmap v2](/roadmap/vision-v2) plantea eliminar este recálculo por completo con un índice persistente de workspace.
 
 ## Modelo de datos (`GhostItem`)
 

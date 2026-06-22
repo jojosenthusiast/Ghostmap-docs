@@ -18,7 +18,7 @@ function processPayment() {}
 ```
 
 ```text
-processPayment   (review) — revisar manejo de errores
+processPayment   (review): revisar manejo de errores
 ```
 
 ## Cuándo usarlo

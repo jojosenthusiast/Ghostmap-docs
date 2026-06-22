@@ -12,9 +12,9 @@ Cuando un [Contextual Anchor](/guide/contextual-anchor) no tiene un símbolo en 
 
 ## Posibles resultados (Ownership Resolution)
 
-- **Resolved** — existe un único símbolo cercano → la metadata se adjunta.
-- **Detached** — no existe ningún símbolo válido cerca → diagnóstico informativo.
-- **Ambiguous** — existen múltiples candidatos igual de cercanos → diagnóstico informativo listando los candidatos.
+- **Resolved**: existe un único símbolo cercano → la metadata se adjunta.
+- **Detached**: no existe ningún símbolo válido cerca → diagnóstico informativo.
+- **Ambiguous**: existen múltiples candidatos igual de cercanos → diagnóstico informativo listando los candidatos.
 
 ## Ejemplo
 
@@ -25,7 +25,7 @@ function login() {}
 ```
 
 ```text
-login   (todo) — mejorar validación
+login   (todo): mejorar validación
 ```
 
 A pesar de la línea en blanco entre el comentario y la función, GhostMap resuelve la metadata al símbolo `login` porque está dentro del radio configurado.

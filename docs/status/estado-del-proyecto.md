@@ -6,9 +6,8 @@ sidebar_label: Estado del proyecto
 
 # Estado del proyecto
 
-:::caution V1 en pruebas finales
-GhostMap V1 tiene buena cobertura de funcionalidad y pruebas automatizadas, pero todavía está pasando por validaciones manuales finales antes de un release amplio. Algunas funciones pueden comportarse de forma ligeramente distinta a lo descrito hasta que esas validaciones terminen.
-:::
+> **V1 en pruebas finales:**
+> GhostMap V1 tiene buena cobertura de funcionalidad y pruebas automatizadas, pero todavía está pasando por validaciones manuales finales antes de un release amplio. Algunas funciones pueden comportarse de forma ligeramente distinta a lo descrito hasta que esas validaciones terminen.
 
 ## Estado de distribución
 
@@ -42,8 +41,8 @@ Ningún cambio en estos canales afecta el código que ya tienes instalado por VS
 ## Advertencias y dirección a futuro
 
 - **Idioma del producto (workstream separado):** GhostMap soporta 19 lenguajes hoy. Está planificada una expansión de ~20 lenguajes adicionales, bloqueada por empaquetado y procedencia de los WASM de Tree-sitter, validez de queries y cobertura de fixtures. Esos lenguajes no se anuncian como soportados hasta pasar ese gate. Ver [Requisitos](/get-started/requisitos) y [Disclaimer](/legal/disclaimer).
-- **Motor V2 e integraciones Enterprise (no enviado):** la indexación a nivel de workspace, el Ghost Watcher y las integraciones Enterprise (Jira / Slack, Ghost Threads, Ghost Graph, dashboards, explicaciones con IA, permisos / audit log) están diseñadas pero **no publicadas**. Cualquier integración con servicios de servidor requeriría su propio aviso claro de privacidad y consentimiento explícito antes de salir. Ver [Roadmap — Visión v2](/roadmap/vision-v2); para una copia de la Privacy Policy vigente, escribir a [getghostmap@proton.me](mailto:getghostmap@proton.me).
+- **Motor V2 e integraciones Enterprise (no enviado):** la indexación a nivel de workspace, el Ghost Watcher y las integraciones Enterprise (Jira / Slack, Ghost Threads, Ghost Graph, dashboards, explicaciones con IA, permisos / audit log) están diseñadas pero **no publicadas**. Cualquier integración con servicios de servidor requeriría su propio aviso claro de privacidad y consentimiento explícito antes de salir. Ver [Roadmap: Visión v2](/roadmap/vision-v2); para una copia de la Privacy Policy vigente, escribir a [getghostmap@proton.me](mailto:getghostmap@proton.me).
 
 ## Próximos pasos
 
-Ver **[Roadmap — Visión v2](/roadmap/vision-v2)** para la dirección a más largo plazo del proyecto.
+Ver **[Roadmap: Visión v2](/roadmap/vision-v2)** para la dirección a más largo plazo del proyecto.

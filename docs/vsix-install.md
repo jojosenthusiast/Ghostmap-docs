@@ -6,7 +6,7 @@ sidebar_label: Instalar desde VSIX
 
 # Instalar GhostMap desde un archivo VSIX
 
-Hoy el VSIX entregado por contacto directo es el **camino único** de instalación de GhostMap, no solo un fallback. El paquete todavía no está publicado en VS Code Marketplace (falta dar de alta al `publisher`) y Open VSX tiene el script de publicación (`publish:open-vsx`, que invoca `ovsx publish`) ya preparado en `package.json`, pero quedan pendientes el namespace en open-vsx.org, el token y el primer publish. GitHub Releases queda como canal planificado post-tag; todavía no hay release público y el repositorio fuente sigue privado. Mientras tanto, todos los usuarios — incluso quienes están en VS Code estándar — instalan vía VSIX recibido por mail.
+Hoy el VSIX entregado por contacto directo es el **camino único** de instalación de GhostMap, no solo un fallback. El paquete todavía no está publicado en VS Code Marketplace (falta dar de alta al `publisher`) y Open VSX tiene el script de publicación (`publish:open-vsx`, que invoca `ovsx publish`) ya preparado en `package.json`, pero quedan pendientes el namespace en open-vsx.org, el token y el primer publish. GitHub Releases queda como canal planificado post-tag; todavía no hay release público y el repositorio fuente sigue privado. Mientras tanto, todos los usuarios (incluso quienes están en VS Code estándar) instalan vía VSIX recibido por mail.
 
 Ver el estado de cada canal en **[Instalación → Estado de distribución](/get-started/instalacion)**.
 
@@ -79,7 +79,7 @@ Cuando instalas desde VSIX (que hoy es el modo por defecto):
 - El extension se marca como "side-loaded" y no aparece en tus extensiones sincronizadas si usas Settings Sync.
 - En entornos gestionados por IT, puede que la política bloquee instalaciones VSIX. Consulta con tu administrador.
 
-Cuando se publique GhostMap en VS Code Marketplace y Open VSX (ambos están pendientes/planificados — ver [Estado del proyecto](/status/estado-del-proyecto)), los avisos de actualización in-editor y la sincronización de Settings Sync funcionarán de forma estándar.
+Cuando se publique GhostMap en VS Code Marketplace y Open VSX (ambos están pendientes/planificados: ver [Estado del proyecto](/status/estado-del-proyecto)), los avisos de actualización in-editor y la sincronización de Settings Sync funcionarán de forma estándar.
 
 ## Siguiente paso
 

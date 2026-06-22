@@ -16,17 +16,17 @@ GhostMap reconoce: **Class, Function, Method, Interface, Struct, Enum**.
 
 Internamente se agrupan en dos categorías:
 
-- `'function'` — incluye Function, Method y Constructor.
-- `'class'` — incluye Class, Interface, Struct y Enum.
+- `'function'`: incluye Function, Method y Constructor.
+- `'class'`: incluye Class, Interface, Struct y Enum.
 
 ## Cómo se extraen
 
 GhostMap intenta, en este orden:
 
-1. **LSP** (`vscode.executeDocumentSymbolProvider`) — si el lenguaje tiene un *language server* activo, es la fuente preferida.
-2. **Tree-sitter** — gramáticas WASM por lenguaje.
-3. **Regex fallback** — patrones por lenguaje cuando no hay LSP ni grammar de tree-sitter disponible (o falla el parseo).
-4. **PHP/Blade** — tiene su propio parser regex dedicado.
+1. **LSP** (`vscode.executeDocumentSymbolProvider`): si el lenguaje tiene un *language server* activo, es la fuente preferida.
+2. **Tree-sitter**: gramáticas WASM por lenguaje.
+3. **Regex fallback**: patrones por lenguaje cuando no hay LSP ni grammar de tree-sitter disponible (o falla el parseo).
+4. **PHP/Blade**: tiene su propio parser regex dedicado.
 
 ## Lenguajes soportados
 
@@ -50,7 +50,7 @@ AuthService   (class)
 └── logout    (function)
 ```
 
-Nota que este árbol existe **sin ninguna anotación `@ghost`** — es el mapa de símbolos puro. La metadata Ghost se le adjunta encima (ver [Ghost Metadata](/guide/ghost-metadata)).
+Nota que este árbol existe **sin ninguna anotación `@ghost`**: es el mapa de símbolos puro. La metadata Ghost se le adjunta encima (ver [Ghost Metadata](/guide/ghost-metadata)).
 
 ## Siguiente paso
 

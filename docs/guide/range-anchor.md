@@ -23,7 +23,7 @@ class PaymentService {
 ```
 
 ```text
-refactor-pagos   (todo) — dividir este servicio en 3
+refactor-pagos   (todo): dividir este servicio en 3
 └── PaymentService
     ├── charge
     ├── refund
@@ -33,7 +33,7 @@ refactor-pagos   (todo) — dividir este servicio en 3
 ## Reglas de jerarquía (containment)
 
 - Un símbolo que **empieza** dentro del rango de un Range Anchor pertenece a ese anchor, incluso si su cuerpo se extiende más allá de la línea `@ghost end`.
-- La jerarquía se construye por **contención de rangos**, no por nombres compuestos: nunca verás algo como `AuthService.login()` como identificador — la relación padre-hijo se expresa directamente en el árbol.
+- La jerarquía se construye por **contención de rangos**, no por nombres compuestos: nunca verás algo como `AuthService.login()` como identificador: la relación padre-hijo se expresa directamente en el árbol.
 
 ## Importante: el nombre es obligatorio para que se vea
 
@@ -49,7 +49,7 @@ Un `@ghost ... start` **sin** `#nombre` es válido sintácticamente, pero al no 
 
 ## Ejemplo antes / después
 
-**Antes** — un archivo grande, sin estructura, donde un dev nuevo no sabe por dónde empezar ni qué partes están "en obras":
+**Antes**: un archivo grande, sin estructura, donde un dev nuevo no sabe por dónde empezar ni qué partes están "en obras":
 
 ```ts
 class PaymentService {
@@ -68,7 +68,7 @@ PaymentService
 └── generateInvoice
 ```
 
-**Después** — con un Range Anchor agrupando el trabajo en curso:
+**Después**: con un Range Anchor agrupando el trabajo en curso:
 
 ```ts
 // @ghost #refactor-pagos start description: dividir este servicio en 3 microservicios | status: in-progress
@@ -87,11 +87,11 @@ class PaymentService {
 ```
 
 ```text
-refactor-pagos        (in-progress) — dividir este servicio en 3 microservicios
+refactor-pagos        (in-progress): dividir este servicio en 3 microservicios
 └── PaymentService
     ├── charge
     ├── refund
-    ├── reconcile        (todo) — pendiente mover a billing-service
+    ├── reconcile        (todo): pendiente mover a billing-service
     └── generateInvoice
 ```
 

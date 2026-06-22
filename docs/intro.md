@@ -37,18 +37,18 @@ GhostMap shows this in the side panel:
 
 ```text
 AuthService
-└── login          (todo) — review security
+└── login          (todo): review security
 ```
 
 No extra files. No external tracker. The tree rebuilds as you edit.
 
 ## Start here
 
-- **[Install / Access](/en/install)** — current install path and planned channels.
-- **[Legal & Support](/en/legal-support)** — license summary and contact.
-- **[Spanish install guide](/get-started/instalacion)** — detailed VSIX steps.
-- **[Spanish first 5 minutes](/get-started/primeros-5-minutos)** — write your first `@ghost`.
-- **[Spanish syntax reference](/reference/sintaxis)** — full `@ghost` syntax, commands, and settings.
+- **[Install / Access](/en/install)**: current install path and planned channels.
+- **[Legal & Support](/en/legal-support)**: license summary and contact.
+- **[Spanish install guide](/get-started/instalacion)**: detailed VSIX steps.
+- **[Spanish first 5 minutes](/get-started/primeros-5-minutos)**: write your first `@ghost`.
+- **[Spanish syntax reference](/reference/sintaxis)**: full `@ghost` syntax, commands, and settings.
 
 ## Three Ghost types
 

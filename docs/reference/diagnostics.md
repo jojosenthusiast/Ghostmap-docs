@@ -20,11 +20,11 @@ GhostMap muestra advertencias e información directamente en el editor cuando de
 
 ## Code Actions disponibles
 
-- **"Add @ghost annotation"** — sobre una línea `function`/`class` sin anotación previa, inserta una línea `// @ghost description:  | status: todo` justo arriba.
-- **"Convert to semantic anchor: @ghost #token"** / **"Convert to contextual anchor: @ghost description: …"** — sobre sintaxis híbrida malformada.
+- **"Add @ghost annotation"**: sobre una línea `function`/`class` sin anotación previa, inserta una línea `// @ghost description:  | status: todo` justo arriba.
+- **"Convert to semantic anchor: @ghost #token"** / **"Convert to contextual anchor: @ghost description: …"**: sobre sintaxis híbrida malformada.
 - **Fix de clave mal escrita** (`statu:` → `status:`) cuando la clave contiene "stat"/"statu" pero no es exactamente `status` o `description`.
-- **Fix de valor de status inválido** — sugiere el status soportado más parecido (por prefijo) o `todo`.
-- **"Add #anchor name"** — sobre una línea `@ghost` sin `#`, `start` ni `end` que no es el anchor más cercano a ningún símbolo, sugiere agregar `#name`.
+- **Fix de valor de status inválido**: sugiere el status soportado más parecido (por prefijo) o `todo`.
+- **"Add #anchor name"**: sobre una línea `@ghost` sin `#`, `start` ni `end` que no es el anchor más cercano a ningún símbolo, sugiere agregar `#name`.
 
 ## Siguiente paso
 

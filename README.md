@@ -29,11 +29,11 @@ The docs site is deployed on Vercel at [https://ghostmap-docs.vercel.app/](https
 
 The root docs experience starts in English. Spanish has the detailed reference pages:
 
-- **English** — root start page plus short pages under `docs/en/`: overview,
+- **English**: root start page plus short pages under `docs/en/`: overview,
   install/access, and legal/support.
-- **Spanish** — detailed pages: requisitos, instalación, conceptos, sintaxis,
+- **Spanish**: detailed pages: requisitos, instalación, conceptos, sintaxis,
   referencia de settings, arquitectura, estado del proyecto, roadmap.
-- **Legal documents (English-authoritative)** — `docs/legal/*` and the
+- **Legal documents (English-authoritative)**: `docs/legal/*` and the
   shipped `LICENSE` / `THIRD_PARTY_NOTICES.txt` are in English as the
   canonical legal version. The Spanish docs reference them, they are not
   re-translated.

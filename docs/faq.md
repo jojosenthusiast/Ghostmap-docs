@@ -10,9 +10,9 @@ sidebar_label: FAQ
 
 La vista Outline nativa de VS Code muestra los símbolos del archivo activo según el language server, sin más. GhostMap añade:
 
-- **Fallback automático** cuando el language server no responde o no está disponible, usando Tree-sitter y regex. En los **19 lenguajes soportados** (ver [Requisitos](/get-started/requisitos)) esto suele significar que tienes árbol incluso cuando Outline aparece vacío. En lenguajes fuera de esa lista (workstream de expansión planificado, ver [Disclaimer](/legal/disclaimer)), no hay árbol — GhostMap no inventa estructura.
+- **Fallback automático** cuando el language server no responde o no está disponible, usando Tree-sitter y regex. En los **19 lenguajes soportados** (ver [Requisitos](/get-started/requisitos)) esto suele significar que tienes árbol incluso cuando Outline aparece vacío. En lenguajes fuera de esa lista (workstream de expansión planificado, ver [Disclaimer](/legal/disclaimer)), no hay árbol: GhostMap no inventa estructura.
 - **Anotaciones `@ghost`** integradas al árbol: TODOs nombrados, regiones marcadas, descripciones con status, todo navegable.
-- **Snapshot persistente por archivo** entre sesiones: abrir un archivo previamente visto pinta el árbol en < 50 ms, no hay que esperar al LSP. Hoy esa caché es por documento, no un índice de workspace completo — eso es V2 (ver [Roadmap](/roadmap/vision-v2)).
+- **Snapshot persistente por archivo** entre sesiones: abrir un archivo previamente visto pinta el árbol en < 50 ms, no hay que esperar al LSP. Hoy esa caché es por documento, no un índice de workspace completo: eso es V2 (ver [Roadmap](/roadmap/vision-v2)).
 - **Scanner progresivo** para archivos de 60k líneas sin congelar el editor.
 - **Diagnósticos** sobre tus anchors y quick fixes.
 
@@ -81,14 +81,14 @@ Sí, uno: **Ctrl+Alt+G** (**Cmd+Alt+G** en macOS) ejecuta `GhostMap: Refresh` mi
 
 ## ¿Qué licencia tiene GhostMap V1?
 
-GhostMap V1 se publica como **source-available** bajo la **GhostMap Free Non-Commercial License**: el código es legible y se permite el uso personal, educativo y de evaluación/testing sin costo. El uso comercial, empresarial, en producción o que genere ingresos requiere autorización por escrito (o un futuro flujo de licencia comercial) — no está cubierto por esta licencia ni por donaciones. La visión Enterprise queda como roadmap futuro para integraciones de equipo; no es una funcionalidad disponible hoy. Ver los Términos de uso (incluidos en el repositorio como `LICENSE`; consultas a getghostmap@proton.me) y [Roadmap](/roadmap/vision-v2).
+GhostMap V1 se publica como **source-available** bajo la **GhostMap Free Non-Commercial License**: el código es legible y se permite el uso personal, educativo y de evaluación/testing sin costo. El uso comercial, empresarial, en producción o que genere ingresos requiere autorización por escrito (o un futuro flujo de licencia comercial): no está cubierto por esta licencia ni por donaciones. La visión Enterprise queda como roadmap futuro para integraciones de equipo; no es una funcionalidad disponible hoy. Ver los Términos de uso (incluidos en el repositorio como `LICENSE`; consultas a getghostmap@proton.me) y [Roadmap](/roadmap/vision-v2).
 
 ## ¿Por qué no aparece GhostMap en VS Code Marketplace u Open VSX todavía?
 
 Hoy GhostMap se instala por **VSIX local** construido desde el repo con `npx @vscode/vsce package`. GitHub Releases queda como canal planificado post-tag; todavía no hay release público.
 
-- **VS Code Marketplace — pendiente.** El paquete todavía no tiene `publisher` configurado en `package.json`; falta dar de alta el publisher en Marketplace y completar el primer `vsce publish`. Mientras tanto, instalar por VSIX es funcionalmente equivalente al Marketplace, solo que sin actualizaciones automáticas dentro del editor.
-- **Open VSX — planificado.** Será el puente para usuarios de **VSCodium, Cursor, Gitpod** y demás editores que consumen Open VSX en vez del Marketplace de Microsoft. Pensado para publicarse antes o en paralelo con la aprobación en Marketplace. El script de publicación (`publish:open-vsx`, que invoca `ovsx publish`) ya está preparado en `package.json` del repo `genesis`; falta registrar el namespace en open-vsx.org, generar el token y ejecutar el primer publish.
+- **VS Code Marketplace: pendiente.** El paquete todavía no tiene `publisher` configurado en `package.json`; falta dar de alta el publisher en Marketplace y completar el primer `vsce publish`. Mientras tanto, instalar por VSIX es funcionalmente equivalente al Marketplace, solo que sin actualizaciones automáticas dentro del editor.
+- **Open VSX: planificado.** Será el puente para usuarios de **VSCodium, Cursor, Gitpod** y demás editores que consumen Open VSX en vez del Marketplace de Microsoft. Pensado para publicarse antes o en paralelo con la aprobación en Marketplace. El script de publicación (`publish:open-vsx`, que invoca `ovsx publish`) ya está preparado en `package.json` del repo `genesis`; falta registrar el namespace en open-vsx.org, generar el token y ejecutar el primer publish.
 
 Mientras esos canales sean ⏳ pendientes / 🧭 planificados, la ruta oficial es la documentada en **[Instalación](/get-started/instalacion)** y **[Instalar desde VSIX](/vsix-install)**.
 

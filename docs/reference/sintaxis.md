@@ -73,9 +73,8 @@ Escribir `gh` seguido de **Tab** directamente sobre una línea vacía activa un 
 - Si no hay símbolo cercano → sugiere `// @ghost #name description: ... | status: todo` (Semantic).
 - Si hay **varios** candidatos igual de cercanos → sugiere primero el más cercano como contextual, luego ofrece la opción semántica (para evitar ambigüedad) y una opción contextual por cada candidato adicional.
 
-:::note
-El autocompletado solo sugiere símbolos definidos **más abajo** en el archivo, dentro del rango de ownership configurado.
-:::
+> **Nota:**
+> El autocompletado solo sugiere símbolos definidos **más abajo** en el archivo, dentro del rango de ownership configurado.
 
 ## 4.5 Reglas gramaticales y errores comunes
 
@@ -94,7 +93,7 @@ El autocompletado solo sugiere símbolos definidos **más abajo** en el archivo,
 
 En V1, un Anchor solo es válido si está escrito como **comentario de línea**: `// @ghost ...` o `# @ghost ...`.
 
-Comentarios de bloque o JSDoc (`/* @ghost ... */`, `/** @ghost ... */`) **no son evidencia válida de anchor en V1** y son ignorados por el parser. Si un `@ghost` dentro de un bloque `/** ... */` no aparece en el árbol, este es el comportamiento esperado — el soporte para comentarios de bloque podría llegar en una versión futura.
+Comentarios de bloque o JSDoc (`/* @ghost ... */`, `/** @ghost ... */`) **no son evidencia válida de anchor en V1** y son ignorados por el parser. Si un `@ghost` dentro de un bloque `/** ... */` no aparece en el árbol, este es el comportamiento esperado: el soporte para comentarios de bloque podría llegar en una versión futura.
 
 ## Siguiente paso
 

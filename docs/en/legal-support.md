@@ -4,7 +4,7 @@ sidebar_label: Legal & Support (EN)
 slug: /en/legal-support
 ---
 
-# Legal & Support — English summary
+# Legal & Support: English summary
 
 > **Legal documents are authoritative in English.** This page points English
 > readers to the legal and support pages. The `LICENSE`,

@@ -10,7 +10,7 @@ sidebar_label: Ghost Tree
 
 El árbol se construye por **contención de rangos**, no por nombres compuestos.
 
-**Regla de pertenencia:** el nodo A es padre de B si `A.start <= B.start` y `A.end > B.start` — es decir, B "nace" dentro del rango de A, aunque su cuerpo se extienda más allá.
+**Regla de pertenencia:** el nodo A es padre de B si `A.start <= B.start` y `A.end > B.start`: es decir, B "nace" dentro del rango de A, aunque su cuerpo se extienda más allá.
 
 ## Ejemplo combinando símbolos y anchors
 
@@ -29,9 +29,9 @@ class PaymentService {
 ```
 
 ```text
-pagos                 (in-progress) — módulo de pagos v2
+pagos                 (in-progress): módulo de pagos v2
 └── PaymentService
-    ├── charge        (todo) — falta manejar timeouts
+    ├── charge        (todo): falta manejar timeouts
     └── refund
 ```
 
@@ -42,7 +42,7 @@ El panel lateral "GhostMap" muestra el árbol con iconos por tipo de nodo:
 - 🔵 Function/Method/Constructor → ícono de método (azul).
 - 🟣 Class/Interface/Struct/Enum → ícono de clase (morado).
 - 🟢 Anchor → ícono de bookmark (verde).
-- ⚪ Nodo "de contexto" — visible solo porque un hijo coincide con un filtro/búsqueda activa → ícono atenuado con la etiqueta `(context)`.
+- ⚪ Nodo "de contexto": visible solo porque un hijo coincide con un filtro/búsqueda activa → ícono atenuado con la etiqueta `(context)`.
 
 Hacer clic en un nodo navega directamente a la línea correspondiente y resalta brevemente el rango.
 
@@ -62,7 +62,7 @@ Todos los comandos aparecen en la paleta de comandos de VS Code agrupados bajo l
 - **Filtro por tipo:** `function` / `class` / `anchor` / Todos.
 - **Filtro por status:** lista dinámica de los estados presentes en el proyecto, con conteo (`todo (5)`, `in-progress (2)`, etc.). El último filtro de status usado se recuerda entre sesiones.
 - **Búsqueda libre:** filtra por nombre o por contenido de `description` (sin distinguir mayúsculas/minúsculas).
-- **Visibilidad por burbuja:** si un hijo cumple el filtro/búsqueda, su(s) padre(s) permanecen visibles —marcados como "contexto"— aunque no cumplan el filtro por sí mismos. Así nunca se pierde la ubicación del resultado dentro del árbol.
+- **Visibilidad por burbuja:** si un hijo cumple el filtro/búsqueda, su(s) padre(s) permanecen visibles (marcados como "contexto") aunque no cumplan el filtro por sí mismos. Así nunca se pierde la ubicación del resultado dentro del árbol.
 
 ## Siguiente paso
 

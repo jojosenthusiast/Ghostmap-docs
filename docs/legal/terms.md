@@ -10,9 +10,8 @@ sidebar_label: Terms of Use
 
 **Effective date:** June 20, 2026 · **Version:** 1.2
 
-:::caution Short version
-Personal, educational, evaluation/testing, and other non-commercial use are allowed. Company, production, revenue-generating, resale, white-label, marketplace, and competing commercial-product use require written authorization.
-:::
+> **Short version:**
+> Personal, educational, evaluation/testing, and other non-commercial use are allowed. Company, production, revenue-generating, resale, white-label, marketplace, and competing commercial-product use require written authorization.
 
 ## 1. Product identification & ownership
 
@@ -63,7 +62,7 @@ GhostMap incorporates third-party components, each licensed under its own terms.
 
 ## 9. Future roadmap and server services
 
-Future team-oriented capabilities and the integrations described in [Roadmap — Visión v2](/roadmap/vision-v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today**. Future commercial or server-service components, if released, will carry their own license terms and privacy notices, and will require an explicit opt-in before any data leaves a user's machine. Nothing in these Terms should be read as a commitment that such components will exist or that they will preserve the local-only posture of V1.
+Future team-oriented capabilities and the integrations described in [Roadmap: Visión v2](/roadmap/vision-v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today**. Future commercial or server-service components, if released, will carry their own license terms and privacy notices, and will require an explicit opt-in before any data leaves a user's machine. Nothing in these Terms should be read as a commitment that such components will exist or that they will preserve the local-only posture of V1.
 
 ## 10. Privacy
 
@@ -85,11 +84,11 @@ These terms are governed by the law of the maintainer's jurisdiction, except whe
 
 ## 14. Changes to these terms
 
-These terms, the license model, and supporter-benefit framing may change for future versions of GhostMap. Changes do not retroactively remove personal, educational, evaluation/testing, or other non-commercial permission already granted for versions you obtained under the then-current license. Changes may affect future versions and any future commercial authorization. The product owner reserves the right to revise the license model — including the structure of allowed and prohibited use, the supporter benefits framework, and any future commercial licensing system — for future versions.
+These terms, the license model, and supporter-benefit framing may change for future versions of GhostMap. Changes do not retroactively remove personal, educational, evaluation/testing, or other non-commercial permission already granted for versions you obtained under the then-current license. Changes may affect future versions and any future commercial authorization. The product owner reserves the right to revise the license model (including the structure of allowed and prohibited use, the supporter benefits framework, and any future commercial licensing system) for future versions.
 
 ## 15. Intellectual property
 
-All intellectual property in GhostMap — the original source code, the Ghost-prefixed vocabulary, the ghost mark, documentation, screenshots, and product copy on this docs site and the marketing site — is owned by the GhostMap project owner. Nothing in these terms transfers ownership of GhostMap intellectual property to any user, supporter, or licensee. Permitted use under section 2 and any commercial license under section 5 grant only the use described in those sections; they do not transfer ownership.
+All intellectual property in GhostMap (the original source code, the Ghost-prefixed vocabulary, the ghost mark, documentation, screenshots, and product copy on this docs site and the marketing site) is owned by the GhostMap project owner. Nothing in these terms transfers ownership of GhostMap intellectual property to any user, supporter, or licensee. Permitted use under section 2 and any commercial license under section 5 grant only the use described in those sections; they do not transfer ownership.
 
 ## 16. Contact
 

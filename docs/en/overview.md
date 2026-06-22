@@ -4,7 +4,7 @@ sidebar_label: Overview (EN)
 slug: /en/overview
 ---
 
-# GhostMap — English overview
+# GhostMap: English overview
 
 > The docs root is English-first. These are short English start pages; Spanish
 > pages hold the detailed reference.
@@ -30,30 +30,30 @@ GhostMap renders it in the side panel as:
 
 ```text
 AuthService
-└── login          (todo) — review security
+└── login          (todo): review security
 ```
 
 No external task tracker, no extra config. The tree rebuilds itself as you type.
 
 ## Where to go next (English)
 
-- [Start](/) — default docs entry.
-- [Install / Access (EN)](/en/install) — current install reality (local VSIX), planned channels.
-- [Legal & Support (EN)](/en/legal-support) — license summary, third-party notices, contact.
+- [Start](/): default docs entry.
+- [Install / Access (EN)](/en/install): current install reality (local VSIX), planned channels.
+- [Legal & Support (EN)](/en/legal-support): license summary, third-party notices, contact.
 
 ## Spanish documentation
 
 The detailed reference, architecture, and concepts documentation is in Spanish:
 
-- [Instalación (ES)](/get-started/instalacion) — VSIX install guide.
-- [Requisitos (ES)](/get-started/requisitos) — supported editors and languages.
-- [Primeros 5 minutos (ES)](/get-started/primeros-5-minutos) — first `@ghost` walkthrough.
-- [Conceptos / Guía (ES)](/guide/philosophy) — symbols, anchors, ownership radius.
-- [Sintaxis (ES)](/reference/sintaxis) — full `@ghost` syntax reference.
-- [Settings (ES)](/reference/settings) — every `ghostmap.*` setting.
-- [Arquitectura v1 (ES)](/architecture/arquitectura-v1) — internals.
-- [Estado del proyecto (ES)](/status/estado-del-proyecto) — known limits.
-- [Roadmap V2 (ES)](/roadmap/vision-v2) — direction.
+- [Instalación (ES)](/get-started/instalacion): VSIX install guide.
+- [Requisitos (ES)](/get-started/requisitos): supported editors and languages.
+- [Primeros 5 minutos (ES)](/get-started/primeros-5-minutos): first `@ghost` walkthrough.
+- [Conceptos / Guía (ES)](/guide/philosophy): symbols, anchors, ownership radius.
+- [Sintaxis (ES)](/reference/sintaxis): full `@ghost` syntax reference.
+- [Settings (ES)](/reference/settings): every `ghostmap.*` setting.
+- [Arquitectura v1 (ES)](/architecture/arquitectura-v1): internals.
+- [Estado del proyecto (ES)](/status/estado-del-proyecto): known limits.
+- [Roadmap V2 (ES)](/roadmap/vision-v2): direction.
 
 ## Project status (short)
 
@@ -62,7 +62,7 @@ The detailed reference, architecture, and concepts documentation is in Spanish:
 - 19 languages supported across quality tiers.
 - Distribution today: locally-built VSIX, requested by email.
 - Planned channels: GitHub Releases (post-tag), VS Code Marketplace, Open VSX.
-  None of these are active yet — see [Install / Access (EN)](/en/install).
+  None of these are active yet: see [Install / Access (EN)](/en/install).
 
 ## License (short)
 

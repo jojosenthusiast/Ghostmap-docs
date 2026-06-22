@@ -4,7 +4,7 @@ sidebar_label: Install / Access (EN)
 slug: /en/install
 ---
 
-# Install & Access — English quick-start
+# Install & Access: English quick-start
 
 > **English start page.** For more detail, see [Instalación (ES)](/get-started/instalacion).
 
@@ -33,10 +33,10 @@ select the file.
 After install:
 
 1. Open a file in any supported language (TypeScript, Python, Rust, C#, Java,
-   PHP, C++, Go, Ruby, Dart, etc. — 19 in total).
+   PHP, C++, Go, Ruby, Dart, etc.: 19 in total).
 2. Open the **GhostMap** view in the activity bar.
 3. The tree shows every detected symbol; click an item to jump.
-4. Drop a `@ghost` anchor in a comment — it appears in the tree.
+4. Drop a `@ghost` anchor in a comment: it appears in the tree.
 
 ## Planned channels (not active today)
 

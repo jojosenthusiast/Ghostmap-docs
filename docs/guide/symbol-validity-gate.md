@@ -15,7 +15,7 @@ El **Symbol Validity Gate** es un filtro centralizado que decide si un nombre ex
 - Tiene menos de 2 caracteres, o es `<anonymous>` / empieza con `<`.
 - Es un identificador de 1–2 letras en minúscula (`e`, `cb`, `fn`...).
 - Está en la lista de "nombres ruido" (`NOISE_NAMES`): `callback`, `cb`, `fn`, `func`, `handler`, `resolve`, `reject`, `next`, `done`, `err`, `error`, `e`, `evt`, `event`, `res`, `req`, `ctx`, `data`, `item`, `then`, `catch`, `finally`, `body`, `args`, `kwargs`, `params`, `opts`, `options`.
-- Es una palabra reservada del lenguaje (lista cross-language: `if`, `class`, `function`, `return`, `async`, `self`, `this`, etc. — más de 100 palabras cubriendo JS/TS, Python, Rust, Go, Java, C#, C/C++, Ruby, SQL, entre otros).
+- Es una palabra reservada del lenguaje (lista cross-language: `if`, `class`, `function`, `return`, `async`, `self`, `this`, etc.: más de 100 palabras cubriendo JS/TS, Python, Rust, Go, Java, C#, C/C++, Ruby, SQL, entre otros).
 
 ## Por qué importa
 
@@ -44,9 +44,8 @@ class Foo {
 function calculateMonthlyInterest(principal: number) {}
 ```
 
-:::tip
-Si una función o variable que esperabas ver no aparece en el árbol, probablemente cae en uno de estos casos — no es un error de GhostMap.
-:::
+> **Nota:**
+> Si una función o variable que esperabas ver no aparece en el árbol, probablemente cae en uno de estos casos: no es un error de GhostMap.
 
 ## Siguiente paso
 
