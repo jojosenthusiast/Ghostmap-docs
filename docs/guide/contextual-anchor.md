@@ -6,25 +6,25 @@ sidebar_label: Contextual Anchor
 
 # Contextual Anchor
 
-## Definición
+## Definition
 
-Un **Contextual Anchor** es una anotación `@ghost` **sin** `#nombre`. No tiene identidad propia: GhostMap busca el símbolo más cercano dentro del [radio de ownership](/guide/ownership-radius) y le adjunta la `description`/`status`.
+A **Contextual Anchor** is a `@ghost` annotation **without** `#name`. It has no identity of its own: GhostMap looks for the closest symbol within the [ownership radius](/guide/ownership-radius) and attaches the `description`/`status` to it.
 
-## Ejemplo
+## Example
 
 ```ts
-// @ghost description: revisar manejo de errores | status: review
+// @ghost description: review error handling | status: review
 function processPayment() {}
 ```
 
 ```text
-processPayment   (review): revisar manejo de errores
+processPayment   (review): review error handling
 ```
 
-## Cuándo usarlo
+## When to use it
 
-Usa un Contextual Anchor cuando la nota es sobre **el símbolo que sigue inmediatamente** y no necesitas referenciarla por nombre desde otro lugar. Si quieres una nota con identidad propia (por ejemplo, para agrupar varios símbolos o para una observación general del archivo), usa un [Semantic Anchor](/guide/semantic-anchor).
+Use a Contextual Anchor when the note is about **the symbol immediately below** and you do not need to reference it by name from elsewhere. If you want a note with its own identity (for example to group several symbols, or for a general file-level observation), use a [Semantic Anchor](/guide/semantic-anchor).
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Range Anchor](/guide/range-anchor)** para agrupar secciones completas de código.
+Continue with **[Range Anchor](/guide/range-anchor)** to group whole code sections.

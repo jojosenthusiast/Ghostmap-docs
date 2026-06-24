@@ -1,46 +1,46 @@
 ---
 id: philosophy
-title: Filosofía de GhostMap
-sidebar_label: Filosofía
+title: GhostMap philosophy
+sidebar_label: Philosophy
 ---
 
-# Filosofía de GhostMap
+# GhostMap philosophy
 
 ## Code-first
 
-La planificación vive junto al código, no en una herramienta externa. Un Ghost no es un ticket que vive en otro lado y que hay que sincronizar manualmente: es una anotación que está físicamente en el archivo que describe.
+Planning lives next to the code, not in an external tool. A Ghost is not a ticket that lives somewhere else and must be synced by hand. It is an annotation that sits physically in the file it describes.
 
-## Una gramática mínima y agnóstica de lenguaje
+## A minimal, language-agnostic grammar
 
-`@ghost` es interpretable por humanos, por herramientas y por modelos de IA. No importa si tu proyecto es TypeScript, Python o Rust: la sintaxis es la misma, solo cambia el prefijo de comentario (`//` o `#`).
+`@ghost` is readable by humans, by tools, and by AI models. It does not matter if your project is TypeScript, Python, or Rust. The syntax is the same. Only the comment prefix changes (`//` or `#`).
 
-## El orden correcto: símbolos primero, Ghosts después
+## The right order: symbols first, Ghosts after
 
-Es fácil pensar en GhostMap como "un sistema de Ghosts con código adjunto". Es al revés:
+It is easy to think of GhostMap as "a Ghost system with some code attached". It is the other way around:
 
 ```text
-Código
+Code
   ↓
-Símbolos  (Class, Function, Method, Interface, Struct, Enum)
+Symbols  (Class, Function, Method, Interface, Struct, Enum)
   ↓
-Metadata Ghost (description, status)
+Ghost metadata (description, status)
   ↓
-Árbol (Ghost Tree)
+Tree (Ghost Tree)
 ```
 
-Primero existe un mapa de **símbolos** del proyecto (extraído del código real, con o sin anotaciones). Después, la metadata Ghost se adjunta a esos símbolos. Esto es lo que permite que GhostMap entienda la estructura de tu proyecto incluso antes de que empieces a anotar nada.
+First there is a map of **symbols** for the project (extracted from real code, with or without annotations). Then the Ghost metadata attaches to those symbols. That is what lets GhostMap understand the structure of your project before you annotate anything.
 
-## Principios de diseño
+## Design principles
 
-1. **Code first**: el código es la fuente de verdad.
-2. **Minimal syntax**: una gramática simple, sin ceremonia.
-3. **Language agnostic**: funciona igual en más de 15 lenguajes.
-4. **Fast navigation**: un clic te lleva exactamente al lugar correcto.
-5. **Structural understanding**: el árbol refleja la jerarquía real del código.
-6. **AI-ready architecture**: la gramática está pensada para ser leída por modelos de IA tan fácilmente como por humanos.
-7. **Workspace awareness**: GhostMap entiende el proyecto, no solo el archivo abierto.
-8. **Incremental scalability**: funciona igual de bien en un archivo de 50 líneas que en uno de 50,000 (ver [Loading Policy](/architecture/loading-policy)).
+1. **Code first**: code is the source of truth.
+2. **Minimal syntax**: a simple grammar, no ceremony.
+3. **Language agnostic**: works the same across 19 languages.
+4. **Fast navigation**: one click takes you to the exact place.
+5. **Structural understanding**: the tree reflects the real hierarchy of the code.
+6. **AI-ready architecture**: the grammar is meant to be read by AI models as easily as by humans.
+7. **Workspace awareness**: GhostMap understands the project, not just the open file.
+8. **Incremental scalability**: it works the same in a 50-line file as in a 50,000-line file (see [Loading Policy](/architecture/loading-policy)).
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Symbol](/guide/symbol)** para entender la primera capa del modelo: cómo GhostMap extrae los símbolos de tu código.
+Continue with **[Symbol](/guide/symbol)** to understand the first layer of the model: how GhostMap extracts symbols from your code.

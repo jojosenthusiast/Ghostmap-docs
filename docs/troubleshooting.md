@@ -1,80 +1,80 @@
 ---
 id: troubleshooting
-title: Solución de problemas
-sidebar_label: Solución de problemas
+title: Troubleshooting
+sidebar_label: Troubleshooting
 ---
 
-# Solución de problemas
+# Troubleshooting
 
-Síntomas comunes, qué los causa y cómo confirmarlo.
+Common symptoms, what causes them, and how to confirm it.
 
-## El panel GhostMap está vacío
+## The GhostMap panel is empty
 
-**Causa más probable:** el archivo activo no es un lenguaje soportado, o no contiene símbolos detectables (archivo de configuración, JSON puro, etc.).
+**Most likely cause:** the active file is not a supported language, or it has no detectable symbols (config file, plain JSON, etc.).
 
-**Confirmación:**
-1. Mira la barra de estado de VS Code, esquina inferior derecha: indica el Language ID.
-2. Compara contra la matriz de lenguajes en [Symbol](/guide/symbol).
-3. Abre otro archivo claramente soportado (por ejemplo un `.ts`). Si ahí sí ves el árbol, el problema era el archivo original.
+**Confirm:**
+1. Look at the VS Code status bar, lower right corner: it shows the Language ID.
+2. Compare against the language matrix in [Symbol](/guide/symbol).
+3. Open another clearly supported file (for example a `.ts`). If you see the tree there, the original file was the problem.
 
-**Otras causas posibles:**
-- El archivo solo tiene símbolos con nombres rechazados por el [Symbol Validity Gate](/guide/symbol-validity-gate) (una sola letra, palabras reservadas, etc.).
-- El archivo excede `ghostmap.loading.maxAutoLines` o `ghostmap.loading.maxAutoBytes`. En ese caso el badge del header dirá `[skipped]`. Ver [Loading Policy](/architecture/loading-policy).
+**Other possible causes:**
+- The file only has symbols with names rejected by the [Symbol Validity Gate](/guide/symbol-validity-gate) (single letters, reserved words, etc.).
+- The file exceeds `ghostmap.loading.maxAutoLines` or `ghostmap.loading.maxAutoBytes`. In that case the header badge will say `[skipped]`. See [Loading Policy](/architecture/loading-policy).
 
-## El badge del header se queda en `[loading]`
+## The header badge stays on `[loading]`
 
-**Causa más probable:** el language server del lenguaje está frío y bajo presión de RAM, tardando más de 800 ms en responder. GhostMap cae automáticamente al fallback de Tree-sitter + regex, así que el árbol debería aparecer aunque sea con menos detalle.
+**Most likely cause:** the language server is cold and under RAM pressure, taking more than 800 ms to respond. GhostMap drops automatically to the Tree-sitter + regex fallback, so the tree should appear even if with less detail.
 
-**Confirmación:**
-1. Activa logging: `"ghostmap.performanceLogging": true` en `settings.json`.
-2. Reproduce el problema.
-3. Abre `Output → GhostMap`. Busca eventos `lsp.timeout` o `refresh.completed`.
+**Confirm:**
+1. Enable logging: `"ghostmap.performanceLogging": true` in `settings.json`.
+2. Reproduce the problem.
+3. Open `Output → GhostMap`. Look for `lsp.timeout` or `refresh.completed` events.
 
-**Mitigación inmediata:** cambia de tab al archivo y vuelve. Eso fuerza un refresh nuevo.
+**Immediate mitigation:** switch to another tab and back. That forces a fresh refresh.
 
-## El árbol muestra datos "antiguos"
+## The tree shows "old" data
 
-El badge dirá `[cached]` o `[stale-cache]`. Significa que GhostMap está pintando desde el snapshot persistente mientras un refresh fresco está en vuelo. En cuestión de segundos el árbol se actualiza.
+The badge will say `[cached]` or `[stale-cache]`. It means GhostMap is painting from the persistent snapshot while a fresh refresh is in flight. In a few seconds the tree updates.
 
-Si el badge se queda en `[stale-cache]` indefinidamente, ejecuta `GhostMap: Refresh` desde la paleta de comandos.
+If the badge stays on `[stale-cache]` indefinitely, run `GhostMap: Refresh` from the command palette.
 
-## Aparece un anchor pero no en el árbol
+## An anchor exists but does not show in the tree
 
-**Causa probable:** el anchor está dentro de un comentario de bloque (`/* @ghost ... */`) o JSDoc (`/** @ghost ... */`). En V1 solo se reconocen anchors dentro de comentarios de línea (`//` o `#`). Ver [Sintaxis](/reference/sintaxis#solo-comentarios-de-línea).
+**Likely cause:** the anchor is inside a block comment (`/* @ghost ... */`) or JSDoc (`/** @ghost ... */`). In V1 only anchors inside line comments (`//` or `#`) are recognized. See [Syntax: line comments only](/reference/syntax#line-comments-only).
 
-**Otra causa:** un Range Anchor sin `#nombre`. Es sintácticamente válido pero no genera un nodo. Ver [Range Anchor](/guide/range-anchor#importante-el-nombre-es-obligatorio-para-que-se-vea).
+**Another cause:** a Range Anchor without `#name`. It is syntactically valid but does not produce a node. See [Range Anchor](/guide/range-anchor#important-the-name-is-required-for-the-range-to-show).
 
-## "Ranges sin cerrar" o diagnósticos en el editor
+## "Unclosed ranges" or diagnostics in the editor
 
-GhostMap detecta varios errores comunes y los reporta como diagnósticos en línea con quick fixes. La lista completa está en [Diagnostics](/reference/diagnostics).
+GhostMap detects several common errors and reports them as inline diagnostics with quick fixes. The full list is in [Diagnostics](/reference/diagnostics).
 
-## GhostMap se siente lento al cambiar de tab rápido
+## GhostMap feels slow on fast tab switching
 
-El comportamiento es intencional: cuando detecta cambios de tab rápidos (menos de 150 ms entre ellos), GhostMap aplica un backpressure de 200 ms para evitar encolar análisis innecesarios. Archivos pequeños (≤ 50 líneas) saltan este retraso automáticamente.
+The behavior is intentional: when it detects fast tab switches (less than 150 ms between them), GhostMap applies a 200 ms backpressure to avoid queueing unnecessary analyses. Small files (50 lines or fewer) skip this delay automatically.
 
-Si te molesta en archivos medianos, sube `ghostmap.loading.tinyLineThreshold` a 200 o más.
+If it bothers you on medium files, raise `ghostmap.loading.tinyLineThreshold` to 200 or more.
 
-## El panel no aparece después de instalar
+## The panel does not appear after install
 
-1. Abre cualquier archivo en un lenguaje soportado.
-2. Mira la barra lateral izquierda: debería haber un icono nuevo de fantasma.
-3. Si no aparece, reinicia VS Code (`Developer: Reload Window` desde la paleta).
-4. Verifica que la extensión esté activa: ve a `Extensions` y busca "GhostMap".
+1. Open any file in a supported language.
+2. Look at the left side bar: there should be a new ghost icon.
+3. If it does not appear, restart VS Code (`Developer: Reload Window` from the palette).
+4. Check that the extension is active: go to `Extensions` and search "GhostMap".
 
-## Reportar un bug
+## Report a bug
 
-Si los pasos anteriores no resuelven tu problema, escribí a [getghostmap@proton.me](mailto:getghostmap@proton.me) con la siguiente información:
+If the steps above do not solve your problem, write to [getghostmap@proton.me](mailto:getghostmap@proton.me) with the following:
 
-- Versión de VS Code (`Help → About`)
-- Versión de GhostMap (panel de Extensions)
-- Sistema operativo
-- Language ID del archivo afectado
-- Cantidad de líneas
-- Qué dice el badge del header
-- Lo que esperabas vs. lo que pasó
-- Pasos para reproducir
-- Si es posible, salida del Output → GhostMap con `performanceLogging` activado
+- VS Code version (`Help → About`)
+- GhostMap version (Extensions panel)
+- Operating system
+- Language ID of the affected file
+- Line count
+- What the header badge shows
+- What you expected vs. what happened
+- Steps to reproduce
+- If possible, the `Output → GhostMap` log with `performanceLogging` enabled
 
-## Siguiente paso
+## Next step
 
-Si tienes una pregunta general en lugar de un bug, revisa el **[FAQ](/faq)**.
+If you have a general question instead of a bug, check the **[FAQ](/faq)**.

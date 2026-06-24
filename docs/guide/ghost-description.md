@@ -6,25 +6,25 @@ sidebar_label: Ghost Description
 
 # Ghost Description
 
-## Definición
+## Definition
 
-La **description** es el texto libre que documenta intención, contexto o trabajo pendiente, asociado a un símbolo o a un anchor.
+The **description** is the free-text field that documents intent, context, or pending work tied to a symbol or to an anchor.
 
-## Ejemplo
+## Example
 
 ```ts
-// @ghost description: este método no maneja refresh tokens todavía | status: todo
+// @ghost description: this method does not handle refresh tokens yet | status: todo
 function login() {}
 ```
 
-Resultado en el árbol:
+Tree result:
 
 ```text
-login   (todo): este método no maneja refresh tokens todavía
+login   (todo): this method does not handle refresh tokens yet
 ```
 
-No hay límite de formato sobre el texto: puede ser una frase corta, una referencia a un ticket, o una nota arquitectónica más larga.
+There is no format constraint on the text. It can be a short sentence, a ticket reference, or a longer architectural note.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Anchor](/guide/anchor)** para entender la diferencia entre metadata pegada a un símbolo y un nodo con identidad propia.
+Continue with **[Anchor](/guide/anchor)** to understand the difference between metadata attached to a symbol and a node with its own identity.

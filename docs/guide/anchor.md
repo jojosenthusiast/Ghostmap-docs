@@ -6,28 +6,28 @@ sidebar_label: Anchor
 
 # Anchor
 
-## Definición
+## Definition
 
-Un **Anchor** es una entidad explícita creada por el usuario mediante `#nombre`. A diferencia de la metadata contextual, **tiene identidad propia** y aparece como nodo independiente en el árbol, sin necesidad de estar atado a un símbolo del lenguaje.
+An **Anchor** is an explicit entity the user creates with `#name`. Unlike contextual metadata, **it has its own identity** and appears as an independent node in the tree, without being attached to a language symbol.
 
-## Ejemplo
+## Example
 
 ```ts
-// @ghost #authentication description: validación jwt | status: todo
+// @ghost #authentication description: jwt validation | status: todo
 ```
 
-Esto genera un nodo `authentication` en el árbol, que puede contener a su vez otros símbolos o anchors si se usa como rango.
+This produces an `authentication` node in the tree, which can itself contain other symbols or anchors if used as a range.
 
-## Los tres tipos de Anchor
+## The three Anchor types
 
-Un Anchor puede tomar tres formas, según cómo se escriba:
+An Anchor takes three forms, depending on how it is written:
 
-| Tipo | Tiene nombre (`#`) | Crea nodo propio | Página |
+| Type | Has name (`#`) | Creates own node | Page |
 |---|---|---|---|
-| **Semantic Anchor** | Sí | Sí | [Semantic Anchor](/guide/semantic-anchor) |
-| **Contextual Anchor** | No | No (se pega al símbolo más cercano) | [Contextual Anchor](/guide/contextual-anchor) |
-| **Range Anchor** | Sí, con `start`/`end` | Sí, y agrupa a otros nodos | [Range Anchor](/guide/range-anchor) |
+| **Semantic Anchor** | Yes | Yes | [Semantic Anchor](/guide/semantic-anchor) |
+| **Contextual Anchor** | No | No (attaches to the closest symbol) | [Contextual Anchor](/guide/contextual-anchor) |
+| **Range Anchor** | Yes, with `start`/`end` | Yes, and groups other nodes | [Range Anchor](/guide/range-anchor) |
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Semantic Anchor](/guide/semantic-anchor)**.
+Continue with **[Semantic Anchor](/guide/semantic-anchor)**.

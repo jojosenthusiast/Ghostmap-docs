@@ -6,50 +6,52 @@ sidebar_label: Range Anchor
 
 # Range Anchor
 
-## Definición
+## Definition
 
-Un **Range Anchor** permite delimitar una región completa de código bajo un mismo Anchor.
+A **Range Anchor** groups a whole section of code under a single named node, with `#name start` opening the range and `@ghost end` closing it.
+
+## Example
 
 ```ts
-// @ghost #refactor-pagos start description: dividir este servicio en 3 | status: todo
+// @ghost #payments-refactor start description: split this service into 3 microservices | status: in-progress
 
 class PaymentService {
   charge() {}
   refund() {}
+
+  // @ghost description: pending move to billing-service | status: todo
   reconcile() {}
+
+  generateInvoice() {}
 }
 
 // @ghost end
 ```
 
 ```text
-refactor-pagos   (todo): dividir este servicio en 3
+payments-refactor      (in-progress): split this service into 3 microservices
 └── PaymentService
     ├── charge
     ├── refund
-    └── reconcile
+    ├── reconcile        (todo): pending move to billing-service
+    └── generateInvoice
 ```
 
-## Reglas de jerarquía (containment)
+## Important: the name is required for the range to show
 
-- Un símbolo que **empieza** dentro del rango de un Range Anchor pertenece a ese anchor, incluso si su cuerpo se extiende más allá de la línea `@ghost end`.
-- La jerarquía se construye por **contención de rangos**, no por nombres compuestos: nunca verás algo como `AuthService.login()` como identificador: la relación padre-hijo se expresa directamente en el árbol.
-
-## Importante: el nombre es obligatorio para que se vea
-
-Un `@ghost ... start` **sin** `#nombre` es válido sintácticamente, pero al no tener nombre **no se renderiza como nodo en el árbol**. Si quieres un rango visible en el Ghost Tree, siempre necesitas `#nombre`:
+A `@ghost ... start` **without** `#name` is syntactically valid, but with no name it **does not render as a node in the tree**. If you want a visible range in the Ghost Tree, you always need `#name`:
 
 ```ts
-// ✅ Crea un nodo visible "refactor-pagos"
-// @ghost #refactor-pagos start description: ... | status: ...
+// Creates a visible node "payments-refactor"
+// @ghost #payments-refactor start description: ... | status: ...
 
-// ❌ Válido, pero no aparece como nodo en el árbol
+// Valid, but does not appear as a node in the tree
 // @ghost start description: ... | status: ...
 ```
 
-## Ejemplo antes / después
+## Before / after example
 
-**Antes**: un archivo grande, sin estructura, donde un dev nuevo no sabe por dónde empezar ni qué partes están "en obras":
+**Before**: a large file with no structure, where a new dev does not know where to start or which parts are "under construction":
 
 ```ts
 class PaymentService {
@@ -68,16 +70,16 @@ PaymentService
 └── generateInvoice
 ```
 
-**Después**: con un Range Anchor agrupando el trabajo en curso:
+**After**: with a Range Anchor grouping the in-flight work:
 
 ```ts
-// @ghost #refactor-pagos start description: dividir este servicio en 3 microservicios | status: in-progress
+// @ghost #payments-refactor start description: split this service into 3 microservices | status: in-progress
 
 class PaymentService {
   charge() {}
   refund() {}
 
-  // @ghost description: pendiente mover a billing-service | status: todo
+  // @ghost description: pending move to billing-service | status: todo
   reconcile() {}
 
   generateInvoice() {}
@@ -87,18 +89,18 @@ class PaymentService {
 ```
 
 ```text
-refactor-pagos        (in-progress): dividir este servicio en 3 microservicios
+payments-refactor      (in-progress): split this service into 3 microservices
 └── PaymentService
     ├── charge
     ├── refund
-    ├── reconcile        (todo): pendiente mover a billing-service
+    ├── reconcile        (todo): pending move to billing-service
     └── generateInvoice
 ```
 
-Con un solo vistazo, cualquier dev entiende: este archivo completo está en medio de un refactor, y específicamente `reconcile` es lo siguiente que hay que mover.
+At a glance, anyone can tell: this whole file is in the middle of a refactor, and `reconcile` is specifically the next thing to move.
 
-**Caso de uso típico:** refactors grandes, migraciones de módulos, o "zonas calientes" del código que requieren contexto adicional antes de tocarlas.
+**Typical use cases:** large refactors, module migrations, or "hot zones" of the code that need extra context before being touched.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Ownership Radius](/guide/ownership-radius)** para entender cómo GhostMap decide a qué símbolo se pega un Contextual Anchor.
+Continue with **[Ownership Radius](/guide/ownership-radius)** to understand how GhostMap decides which symbol a Contextual Anchor attaches to.

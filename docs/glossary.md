@@ -1,133 +1,133 @@
 ---
 id: glossary
-title: Glosario
-sidebar_label: Glosario
+title: Glossary
+sidebar_label: Glossary
 ---
 
-# Glosario
+# Glossary
 
-Términos que aparecen en la documentación y en la UI de GhostMap, definidos en un solo lugar.
+Terms used in the documentation and in the GhostMap UI, defined in one place.
 
 ## Anchor
 
-Una anotación `@ghost` escrita dentro de un comentario de línea del código. Hay tres tipos: [Point](/guide/semantic-anchor) (con `#nombre`), [Contextual](/guide/contextual-anchor) (sin `#nombre`, se adjunta al símbolo cercano) y [Range](/guide/range-anchor) (delimitada con `start` y `end`).
+A `@ghost` annotation written inside a line comment. There are three types: [Point](/guide/semantic-anchor) (with `#name`), [Contextual](/guide/contextual-anchor) (no `#name`, attaches to the nearby symbol), and [Range](/guide/range-anchor) (bounded by `start` and `end`).
 
 ## Backpressure
 
-Mecanismo del scheduler de GhostMap que retrasa el inicio de un refresh por 200 ms cuando detecta cambios rápidos de tab (menos de 150 ms entre ellos). Evita encolar análisis de archivos por los que el usuario solo pasó. Archivos pequeños lo saltan automáticamente. Ver [Rendimiento](/reference/rendimiento#tab-switching).
+GhostMap's scheduler mechanism that delays the start of a refresh by 200 ms when it detects fast tab switches (less than 150 ms between them). It avoids queueing analyses for files the user just passed through. Small files skip it automatically. See [Performance](/reference/performance#tab-switching).
 
 ## Coalescer
 
-Componente del scanner progresivo que agrupa varias publicaciones de batches en una sola actualización del árbol cada 250 ms. Evita que el panel parpadee durante el análisis de archivos grandes.
+Progressive scanner component that groups several batch publications into a single tree update every 250 ms. Prevents panel flicker during the analysis of large files.
 
 ## Contextual Anchor
 
-Anchor sin `#nombre`. Se adjunta automáticamente al símbolo más cercano dentro del [ownership radius](/guide/ownership-radius). Ver [Contextual Anchor](/guide/contextual-anchor).
+Anchor without `#name`. Attaches automatically to the closest symbol within the [ownership radius](/guide/ownership-radius). See [Contextual Anchor](/guide/contextual-anchor).
 
 ## Generation
 
-Identificador interno que se incrementa con cada refresh solicitado. GhostMap usa la generation para descartar trabajo cuyo resultado ya está obsoleto (por ejemplo, refresh del archivo A cuando el usuario ya cambió al archivo B).
+Internal identifier that increments with every refresh request. GhostMap uses the generation to discard work whose result is already obsolete (for example, a refresh of file A when the user has already switched to file B).
 
 ## Ghost Comments
 
-Nombre canónico de la futura forma "invisible" de los anchors en V2. La información Ghost dejará de vivir como texto en el comentario y se mostrará vía decoraciones y CodeLens, mientras el código fuente permanece limpio. Ver [Roadmap](/roadmap/vision-v2).
+Canonical name for the future "invisible" form of anchors in V2. Ghost information will stop living as text in the comment and will be shown via decorations and CodeLens, while the source stays clean. See [Roadmap](/roadmap/v2).
 
 ## Ghost Context Graph
 
-Nombre largo del **Ghost Graph**, el grafo de relaciones entre archivos, símbolos y dependencias que vivirá en el Ghost Index v2.
+Long name for **Ghost Graph**: the graph of relations between files, symbols, and dependencies that will live in the Ghost Index v2.
 
 ## Ghost Engine
 
-Nombre canónico de la pila de extracción de símbolos. Tres capas en orden: LSP (language server) → Tree-sitter WASM → regex fallback. Ver [Rendimiento](/reference/rendimiento#el-ghost-engine).
+Canonical name for the symbol-extraction stack. Three layers in order: LSP (language server) then Tree-sitter WASM then regex fallback. See [Performance](/reference/performance#the-ghost-engine).
 
 ## Ghost Graph
 
-Forma corta de "Ghost Context Graph". Visualización de las relaciones que vive en el Ghost Index v2. Ver [Roadmap](/roadmap/vision-v2).
+Short form of "Ghost Context Graph". Visualization of the relations stored in the Ghost Index v2. See [Roadmap](/roadmap/v2).
 
 ## Ghost Index
 
-Caché persistente que GhostMap mantiene por workspace en `.ghostmap/ghostmap.json`. En V1 es per-document. En V2 será per-workspace (Ghost Index v2). Ver [Local State](/architecture/local-state).
+Persistent cache GhostMap keeps per workspace in `.ghostmap/ghostmap.json`. In V1 it is per-document. In V2 it will be per-workspace (Ghost Index v2). See [Local State](/architecture/local-state).
 
 ## Ghost Project Index
 
-Sinónimo de **Ghost Index v2**. El índice persistente a nivel de workspace que reemplazará la caché por archivo de V1.
+Synonym for **Ghost Index v2**: the persistent workspace-level index that will replace the per-file cache of V1.
 
 ## Ghost Threads
 
-Nombre canónico de las discusiones por bloque de código planeadas para V2 Enterprise. Cada función, clase o range puede tener su propio hilo, con asignación de roles y puente con Slack.
+Canonical name for the per-code-block discussions planned for V2 Enterprise. Every function, class, or range can have its own thread, with role assignment and a bridge to Slack.
 
 ## Ghost Tree
 
-El árbol que GhostMap muestra en el panel lateral: clases, interfaces, funciones, métodos, anchors. Construido a partir de la salida del [Ghost Engine](#ghost-engine).
+The tree GhostMap shows in the side panel: classes, interfaces, functions, methods, anchors. Built from the [Ghost Engine](#ghost-engine) output.
 
 ## Ghost Watcher
 
-Componente planeado para V2: observador de archivos que mantiene el [Ghost Index v2](#ghost-index) actualizado de forma incremental cuando hay creación, eliminación, renombrado o modificación.
+Component planned for V2: filesystem watcher that keeps the [Ghost Index v2](#ghost-index) incrementally up to date on create, delete, rename, or modify.
 
 ## Language ID
 
-Identificador interno de VS Code para el lenguaje del archivo activo. Aparece en la barra de estado, esquina inferior derecha. Lo usa GhostMap para decidir qué patrones de extracción aplicar.
+VS Code's internal identifier for the language of the active file. It appears in the status bar, lower right corner. GhostMap uses it to decide which extraction patterns apply.
 
 ## LSP
 
-Language Server Protocol. Especificación que usan los language servers (TypeScript Server, Pyright, etc.) para exponer información del código. GhostMap consulta al LSP del lenguaje activo como primera capa del Ghost Engine.
+Language Server Protocol. The spec language servers (TypeScript Server, Pyright, etc.) use to expose code information. GhostMap queries the active language's LSP as the first layer of the Ghost Engine.
 
 ## Ownership Radius
 
-Cantidad de líneas alrededor de un [Contextual Anchor](#contextual-anchor) en las que GhostMap busca un símbolo al cual adjuntar la metadata. Default: 5. Configurable vía `ghostmap.ownershipRadius`. Ver [Ownership Radius](/guide/ownership-radius).
+Number of lines around a [Contextual Anchor](#contextual-anchor) where GhostMap looks for a symbol to attach the metadata to. Default: 5. Configurable via `ghostmap.ownershipRadius`. See [Ownership Radius](/guide/ownership-radius).
 
 ## Point Anchor
 
-Anchor con `#nombre` pero sin `start`/`end`. Crea su propio nodo en el árbol con identidad propia. También llamado **Semantic Anchor**. Ver [Semantic Anchor](/guide/semantic-anchor).
+Anchor with `#name` but no `start`/`end`. Creates its own node in the tree with its own identity. Also called **Semantic Anchor**. See [Semantic Anchor](/guide/semantic-anchor).
 
 ## Progressive Scanner
 
-Motor de extracción para archivos grandes. Procesa el archivo en batches de 4,000 líneas y publica los primeros 50 símbolos antes de terminar. Cede el control al event loop entre batches con `setImmediate` para que el editor siga responsivo. Ver [Rendimiento](/reference/rendimiento#el-scanner-progresivo-archivos-grandes).
+Extraction engine for large files. Processes the file in 4,000-line batches and publishes the first 50 symbols before finishing. Yields control to the event loop between batches via `setImmediate` so the editor stays responsive. See [Performance](/reference/performance#the-progressive-scanner-large-files).
 
 ## Range Anchor
 
-Anchor con `#nombre start ... end` que delimita una sección de código. Crea un nodo en el árbol que contiene todos los símbolos dentro de la región. Ver [Range Anchor](/guide/range-anchor).
+Anchor with `#name start ... end` that bounds a section of code. Creates a node in the tree containing all symbols inside the region. See [Range Anchor](/guide/range-anchor).
 
 ## Refresh
 
-Operación que recalcula el árbol para el documento activo. Puede ser disparada por un cambio de tab, una edición del archivo, o el comando manual `GhostMap: Refresh`.
+Operation that recomputes the tree for the active document. Triggered by a tab switch, a file edit, or the manual `GhostMap: Refresh` command.
 
 ## Scheduler
 
-Componente que gestiona la cola de refreshes. Mantiene como máximo uno en vuelo y uno encolado por archivo. Spam clicks colapsan al "último". Ver [Arquitectura](/architecture/arquitectura-v1).
+Component that manages the refresh queue. Keeps at most one in-flight and one queued per file. Spam clicks collapse to the "last". See [Architecture](/architecture/v1).
 
 ## Semantic Anchor
 
-Otro nombre para el [Point Anchor](#point-anchor) (anchor con `#nombre`). Llamado "semántico" porque tiene identidad propia y es referenciable como nodo del árbol.
+Another name for [Point Anchor](#point-anchor) (anchor with `#name`). Called "semantic" because it has its own identity and is referenceable as a tree node.
 
 ## Snapshot
 
-Una entrada del [Ghost Index](#ghost-index) que captura el estado de extracción de un archivo: árbol, anchors, fingerprint del contenido, momento de captura. Ver [Local State](/architecture/local-state).
+A [Ghost Index](#ghost-index) entry that captures the extraction state of a file: tree, anchors, content fingerprint, capture timestamp. See [Local State](/architecture/local-state).
 
 ## Stale-cache
 
-Estado en el que GhostMap está mostrando un snapshot previo (badge `[cached]`) mientras valida o re-extrae el archivo. Si el fingerprint no coincide, pasa a `[stale-cache]`. Resuelve solo cuando el refresh fresco completa.
+State in which GhostMap is showing a prior snapshot (badge `[cached]`) while validating or re-extracting the file. If the fingerprint does not match, it switches to `[stale-cache]`. Resolves only when the fresh refresh completes.
 
 ## Status badge
 
-El indicador entre corchetes que aparece en el título del panel GhostMap: `[loading]`, `[cached]`, `[stale-cache]`, `[skipped]`, `[no items]`, `[deferred]`, `[discarded:...]`. Te dice exactamente en qué estado está la extracción.
+Bracketed indicator in the GhostMap panel title: `[loading]`, `[cached]`, `[stale-cache]`, `[skipped]`, `[no items]`, `[deferred]`, `[discarded:...]`. Tells you exactly what state extraction is in.
 
 ## Symbol
 
-Clase, interfaz, struct, enum, método, función, constructor o anchor que aparece como nodo del Ghost Tree. Lo que cuenta como Symbol se decide en el [Symbol Validity Gate](/guide/symbol-validity-gate).
+Class, interface, struct, enum, method, function, constructor, or anchor that shows up as a node in the Ghost Tree. What counts as a Symbol is decided by the [Symbol Validity Gate](/guide/symbol-validity-gate).
 
 ## Symbol Validity Gate
 
-Filtro que decide qué identificadores se aceptan como Symbol. Rechaza nombres de una sola letra, palabras reservadas del lenguaje, y patrones ruidosos (`fn`, `cb`, `id`...). Ver [Symbol Validity Gate](/guide/symbol-validity-gate).
+Filter that decides which identifiers are accepted as a Symbol. Rejects 1 to 2 letter names, language reserved words, and noisy patterns (`fn`, `cb`, `id`, etc.). See [Symbol Validity Gate](/guide/symbol-validity-gate).
 
 ## Watchdog
 
-Mecanismo que detecta si el árbol del archivo activo no se actualizó dentro de 1 segundo después de cambiar de tab, y lanza un refresh de recuperación. Solo dispara si no hay un refresh en vuelo para esa generation. Ver [Rendimiento](/reference/rendimiento#watchdog).
+Mechanism that detects if the tree for the active file has not updated within 1 second after a tab switch, and fires a recovery refresh. Only fires when no refresh is in flight for that generation. See [Performance](/reference/performance#watchdog).
 
 ## WASM
 
-WebAssembly. Formato binario portable. GhostMap empaqueta 19 gramáticas Tree-sitter compiladas a WASM dentro de la extensión. Son código estático sin capacidad de red.
+WebAssembly. Portable binary format. GhostMap packs 19 Tree-sitter grammars compiled to WASM inside the extension. They are static code with no network capability.
 
-## Siguiente paso
+## Next step
 
-Vuelve al **[FAQ](/faq)** o a la **[Sintaxis](/reference/sintaxis)** para casos concretos.
+Go back to the **[FAQ](/faq)** or to the **[Syntax](/reference/syntax)** for concrete cases.

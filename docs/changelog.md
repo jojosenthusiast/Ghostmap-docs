@@ -8,6 +8,8 @@ sidebar_label: Changelog
 
 Every user-visible fix and feature in GhostMap is logged here with the reasoning behind it. This is the product changelog; the round-by-round internal log lives alongside the extension source.
 
+Public history starts at `0.5.0`, the first version stamp shipped outside the maintainers. Earlier work was internal stabilization and is summarized below.
+
 ## 0.5.0 - June 18, 2026
 
 The first version stamp after multiple rounds of stabilization. Marks GhostMap as feature-complete pre-1.0: the Ghost Tree, the Ghost Engine, the Ghost Index, anchors, diagnostics, and status badges all behave as documented.
@@ -15,7 +17,7 @@ The first version stamp after multiple rounds of stabilization. Marks GhostMap a
 ### Added
 
 - **Status badges in the Ghost Tree header**: the panel title now shows `[loading]`, `[cached]`, `[stale-cache]`, `[skipped]`, `[no items]`, or `[discarded:...]` so you can see exactly what the engine is doing without opening the console.
-- **Snippet coverage widened to 20 language IDs**: the `gh` / `gw` / `gr` / `gl` / `gxl` / `gxr` prefixes are now available in JavaScript, TypeScript, JSX, TSX, C, C++, C#, Java, Go, Rust, PHP, Kotlin, Swift, Scala, Groovy, Solidity, Python, Ruby, Elixir, and Shell.
+- **Snippet coverage widened to 20 language IDs**: the `gh` / `gw` / `gr` / `gl` / `gxl` / `gxr` prefixes are now available in JavaScript, TypeScript, JSX, TSX, C, C++, C#, Java, Go, Rust, PHP, Kotlin, Swift, Scala, Groovy, Solidity, Python, Ruby, Elixir, and Shell. Snippet availability does not imply Ghost Tree symbol extraction support.
 
 ### Fixed (round 6)
 
@@ -65,4 +67,4 @@ The first version stamp after multiple rounds of stabilization. Marks GhostMap a
 
 ## Next steps
 
-For the V2 vision, see the [Roadmap](/roadmap/vision-v2). For known limitations of the current release, see the [Disclaimer](/legal/disclaimer).
+For known limitations of the current release, see the [Disclaimer](/legal/disclaimer).

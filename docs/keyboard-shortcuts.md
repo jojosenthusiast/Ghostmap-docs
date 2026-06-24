@@ -1,42 +1,42 @@
 ---
 id: keyboard-shortcuts
-title: Atajos de teclado
-sidebar_label: Atajos de teclado
+title: Keyboard shortcuts
+sidebar_label: Keyboard shortcuts
 ---
 
-# Atajos de teclado
+# Keyboard shortcuts
 
-## Atajos por defecto
+## Default shortcuts
 
-| Acción | Windows / Linux | macOS | Disponible cuando |
+| Action | Windows / Linux | macOS | Available when |
 |---|---|---|---|
-| `GhostMap: Refresh` | `Ctrl+Alt+G` | `Cmd+Alt+G` | El editor tiene foco |
+| `GhostMap: Refresh` | `Ctrl+Alt+G` | `Cmd+Alt+G` | The editor has focus |
 
-El resto de los comandos (`Filter`, `Search`, `Reset`) no tienen atajo por defecto. Están disponibles desde:
+The other commands (`Filter`, `Search`, `Reset`) have no default shortcut. They are available from:
 
-- **La paleta de comandos** (`Ctrl+Shift+P` / `Cmd+Shift+P`), buscando `GhostMap: ...`.
-- **La toolbar del panel GhostMap**, en la barra lateral izquierda.
+- **The command palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`), searching `GhostMap: ...`.
+- **The GhostMap panel toolbar**, in the left side bar.
 
-## Asignar tus propios atajos
+## Assigning your own shortcuts
 
-VS Code te permite asignar cualquier atajo a cualquier comando:
+VS Code lets you assign any shortcut to any command:
 
-1. Abre `File → Preferences → Keyboard Shortcuts` (`Ctrl+K Ctrl+S` / `Cmd+K Cmd+S`).
-2. Busca `GhostMap`.
-3. Click en el lápiz junto al comando, presiona la combinación que quieras, Enter.
+1. Open `File → Preferences → Keyboard Shortcuts` (`Ctrl+K Ctrl+S` / `Cmd+K Cmd+S`).
+2. Search `GhostMap`.
+3. Click the pencil next to the command, press the combination you want, Enter.
 
-Comandos disponibles para asignar:
+Commands available to bind:
 
-| Comando | ID |
+| Command | ID |
 |---|---|
-| Refrescar el árbol del archivo activo | `ghostmap.refresh` |
-| Filtrar el árbol por status | `ghostmap.filterByStatus` |
-| Buscar en el árbol | `ghostmap.search` |
-| Limpiar filtros y búsqueda | `ghostmap.reset` |
+| Refresh the active file's tree | `ghostmap.refresh` |
+| Filter the tree by status | `ghostmap.filterByStatus` |
+| Search in the tree | `ghostmap.search` |
+| Clear filters and search | `ghostmap.reset` |
 
-## Atajos sugeridos
+## Suggested shortcuts
 
-Si usas GhostMap a diario, estas asignaciones suelen funcionar bien:
+If you use GhostMap daily, these usually work well:
 
 ```json
 [
@@ -46,23 +46,23 @@ Si usas GhostMap a diario, estas asignaciones suelen funcionar bien:
 ]
 ```
 
-Pégalas en tu `keybindings.json` (accesible desde la paleta: `Preferences: Open Keyboard Shortcuts (JSON)`).
+Paste them into your `keybindings.json` (accessible from the palette: `Preferences: Open Keyboard Shortcuts (JSON)`).
 
-## Snippets relacionados
+## Related snippets
 
-No son atajos de comando, sino prefijos que activas con **Tab** dentro de un archivo:
+These are not command shortcuts but prefixes you trigger with **Tab** inside a file:
 
-| Prefijo | Resultado |
+| Prefix | Result |
 |---|---|
-| `gh`  | Point Anchor con nombre (línea `//`) |
-| `gw`  | Contextual Anchor (línea `//`) |
-| `gr`  | Range Anchor (línea `//`) |
-| `gl`  | Point Anchor (línea `#`) |
-| `gxl` | Contextual Anchor (línea `#`) |
-| `gxr` | Range Anchor (línea `#`) |
+| `gh`  | Named Point Anchor (line `//`) |
+| `gw`  | Contextual Anchor (line `//`) |
+| `gr`  | Range Anchor (line `//`) |
+| `gl`  | Named Point Anchor (line `#`) |
+| `gxl` | Contextual Anchor (line `#`) |
+| `gxr` | Range Anchor (line `#`) |
 
-Ver [Sintaxis](/reference/sintaxis) para los detalles.
+See [Syntax](/reference/syntax) for details.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Settings](/reference/settings)** para personalizar los defaults.
+Continue with **[Settings](/reference/settings)** to customize the defaults.

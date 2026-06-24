@@ -6,8 +6,6 @@ sidebar_label: Disclaimer
 
 # Disclaimer
 
-> **Nota:** Esta página está en inglés porque define límites técnicos y legales que tienen que ser inequívocos. La versión definitiva de los documentos legales es la inglesa. Si necesitas la información en español, los puntos clave están resumidos en [Estado del proyecto](/status/estado-del-proyecto).
-
 **Effective date:** June 18, 2026 · **Version:** 1.0
 
 > **Important:**
@@ -52,7 +50,7 @@ Roughly 20 additional languages (Kotlin, Swift, Haskell, OCaml, Clojure, Lua, R,
 - **Non-reproducible WASM provenance**: today's WASMs are checked-in artifacts; the expansion needs a reproducible build job before adding more.
 - **Fallback masking broken grammars**: the LSP → Tree-sitter → regex chain hides grammar regressions; the expansion needs a per-grammar load + sample-query smoke that fails loudly.
 
-Until a candidate language passes all of those gates (and gets a fixture row in the matrix tests), it does not appear in [Requisitos](/get-started/requisitos) or the language sections of the marketing site.
+Until a candidate language passes all of those gates (and gets a fixture row in the matrix tests), it does not appear in [Requirements](/get-started/requirements) or the language sections of the marketing site.
 
 ## "Navigational aid" framing
 

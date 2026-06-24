@@ -1,32 +1,32 @@
 ---
 id: vsix-install
-title: Instalar desde un archivo VSIX
-sidebar_label: Instalar desde VSIX
+title: Install from a VSIX file
+sidebar_label: Install from VSIX
 ---
 
-# Instalar GhostMap desde un archivo VSIX
+# Install GhostMap from a VSIX file
 
-Hoy el VSIX entregado por contacto directo es el **camino único** de instalación de GhostMap, no solo un fallback. El paquete todavía no está publicado en VS Code Marketplace (falta dar de alta al `publisher`) y Open VSX tiene el script de publicación (`publish:open-vsx`, que invoca `ovsx publish`) ya preparado en `package.json`, pero quedan pendientes el namespace en open-vsx.org, el token y el primer publish. GitHub Releases queda como canal planificado post-tag; todavía no hay release público y el repositorio fuente sigue privado. Mientras tanto, todos los usuarios (incluso quienes están en VS Code estándar) instalan vía VSIX recibido por mail.
+Today the VSIX delivered by direct contact is the **only** install path for GhostMap, not just a fallback. The package is not yet on the VS Code Marketplace (publisher onboarding is pending) and Open VSX has the publish script (`publish:open-vsx`, calling `ovsx publish`) prepared in `package.json`, but the namespace on open-vsx.org, the token, and the first publish are still pending. GitHub Releases is the planned post-tag channel; there is no public release yet and the source repository is still private. In the meantime, every user (including users on standard VS Code) installs via VSIX received by email.
 
-Ver el estado de cada canal en **[Instalación → Estado de distribución](/get-started/instalacion)**.
+See the per-channel state in **[Install](/install)**.
 
-Este archivo también te sirve si más adelante necesitas:
+This file is also useful when you later need:
 
-- Instalación **offline** o en una máquina sin acceso a la red.
-- **Pinning** a una versión concreta para reproducibilidad.
-- Entornos corporativos donde Marketplace/Open VSX están bloqueados.
+- **Offline** install or a machine without network access.
+- **Pinning** to a specific version for reproducibility.
+- Corporate setups where Marketplace and Open VSX are blocked.
 
-## Obtener el VSIX
+## Get the VSIX
 
-### Opción A (recomendada hoy): pedir el VSIX por mail
+### Option A (recommended today): request the VSIX by email
 
-Escribí a [getghostmap@proton.me](mailto:getghostmap@proton.me) indicando que querés el paquete de instalación. Te respondemos con el archivo `ghostmap-0.5.0.vsix` listo para instalar.
+Write to [getghostmap@proton.me](mailto:getghostmap@proton.me) saying you want the install package. You will receive the `ghostmap-0.5.0.vsix` file ready to install.
 
-Este es el camino oficial mientras Marketplace, Open VSX y el repositorio público estén pendientes.
+This is the official path while Marketplace, Open VSX, and the public repository are pending.
 
-### Opción B: empaquetar desde el código fuente (solo con acceso al repo)
+### Option B: build the VSIX from source (requires repo access)
 
-El repositorio `genesis` es privado y el acceso es limitado. Si te otorgaron acceso explícito, podés empaquetarlo vos mismo:
+The `genesis` repository is private and access is limited. If you have explicit access, you can package it yourself:
 
 ```bash
 cd genesis
@@ -35,52 +35,52 @@ npm run compile
 npx @vscode/vsce package --out ghostmap.vsix
 ```
 
-El archivo `ghostmap.vsix` queda en el directorio actual. Si no tenés acceso al repo, usá la Opción A.
+The `ghostmap.vsix` file lands in the current directory. If you do not have repo access, use Option A.
 
-### Opción C: descargar un VSIX publicado cuando exista
+### Option C: download a published VSIX when one exists
 
-Cuando exista un release público, el VSIX se anunciará por los canales de distribución oficiales (este documento se actualizará con la URL exacta). Hasta entonces, usá la Opción A.
+When a public release exists, the VSIX will be announced through the official distribution channels (this document will be updated with the exact URL). Until then, use Option A.
 
-## Instalar el VSIX
+## Install the VSIX
 
-### Desde VS Code (UI)
+### From VS Code (UI)
 
-1. Abre el panel **Extensions** (`Ctrl+Shift+X` / `Cmd+Shift+X`).
-2. Click en el menú "..." de la barra superior del panel.
+1. Open the **Extensions** panel (`Ctrl+Shift+X` / `Cmd+Shift+X`).
+2. Click the "..." menu on the top bar of the panel.
 3. **Install from VSIX...**
-4. Selecciona el archivo `ghostmap.vsix`.
-5. VS Code instala y te pide recargar.
+4. Pick the `ghostmap.vsix` file.
+5. VS Code installs and asks you to reload.
 
-### Desde la línea de comandos
+### From the command line
 
 ```bash
 code --install-extension ghostmap.vsix
 ```
 
-## Verificar la instalación
+## Verify the install
 
-Después de recargar VS Code:
+After reloading VS Code:
 
-1. Abre cualquier archivo de un lenguaje soportado (por ejemplo `.ts`).
-2. En la barra lateral izquierda debería aparecer un icono nuevo de fantasma.
-3. Click en el icono: el panel **GhostMap** muestra el árbol de símbolos del archivo activo.
+1. Open any file of a supported language (for example `.ts`).
+2. A new ghost icon should appear in the left side bar.
+3. Click the icon: the **GhostMap** panel shows the symbol tree of the active file.
 
-Si el panel está vacío y el archivo tiene símbolos, abre la paleta y ejecuta `GhostMap: Refresh`; si sigue vacío, escríbenos a getghostmap@proton.me con la versión de VS Code y el lenguaje del archivo.
+If the panel is empty and the file has symbols, open the palette and run `GhostMap: Refresh`; if it is still empty, write to getghostmap@proton.me with the VS Code version and the file's language.
 
-## Actualizar a una versión nueva
+## Update to a new version
 
-Repite el proceso con el nuevo VSIX. VS Code detecta que es una nueva versión del mismo extension y la actualiza in-place. No hace falta desinstalar primero.
+Repeat the process with the new VSIX. VS Code detects it as a new version of the same extension and updates it in place. There is no need to uninstall first.
 
-## Restricciones del modo VSIX
+## VSIX mode restrictions
 
-Cuando instalas desde VSIX (que hoy es el modo por defecto):
+When you install from VSIX (which is the default mode today):
 
-- VS Code **no** te avisa automáticamente cuando hay una versión nueva. Tienes que comprobar manualmente el repo o, cuando existan releases públicos, la página de GitHub Releases.
-- El extension se marca como "side-loaded" y no aparece en tus extensiones sincronizadas si usas Settings Sync.
-- En entornos gestionados por IT, puede que la política bloquee instalaciones VSIX. Consulta con tu administrador.
+- VS Code does **not** notify you automatically when a new version exists. You have to check manually, or, when public releases exist, the GitHub Releases page.
+- The extension is marked as "side-loaded" and does not appear in your synced extensions if you use Settings Sync.
+- In IT-managed environments, policy may block VSIX installs. Check with your administrator.
 
-Cuando se publique GhostMap en VS Code Marketplace y Open VSX (ambos están pendientes/planificados: ver [Estado del proyecto](/status/estado-del-proyecto)), los avisos de actualización in-editor y la sincronización de Settings Sync funcionarán de forma estándar.
+When GhostMap is published on VS Code Marketplace and Open VSX (both pending/planned: see [Project status](/status/project-status)), in-editor update notifications and Settings Sync will work in the standard way.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Primeros 5 minutos](/get-started/primeros-5-minutos)** para escribir tu primer anchor `@ghost`.
+Continue with **[First 5 minutes](/get-started/first-5-minutes)** to write your first `@ghost` anchor.

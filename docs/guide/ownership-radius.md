@@ -6,30 +6,30 @@ sidebar_label: Ownership Radius
 
 # Ownership Radius & Ownership Resolution
 
-## Definición
+## Definition
 
-Cuando un [Contextual Anchor](/guide/contextual-anchor) no tiene un símbolo en la misma línea, GhostMap busca hacia arriba/abajo dentro de un radio configurable de líneas (`ghostmap.ownershipRadius`, por defecto `5`) y adjunta la metadata al símbolo válido más cercano.
+When a [Contextual Anchor](/guide/contextual-anchor) has no symbol on the same line, GhostMap searches up and down within a configurable line radius (`ghostmap.ownershipRadius`, default `5`) and attaches the metadata to the closest valid symbol.
 
-## Posibles resultados (Ownership Resolution)
+## Possible results (Ownership Resolution)
 
-- **Resolved**: existe un único símbolo cercano → la metadata se adjunta.
-- **Detached**: no existe ningún símbolo válido cerca → diagnóstico informativo.
-- **Ambiguous**: existen múltiples candidatos igual de cercanos → diagnóstico informativo listando los candidatos.
+- **Resolved**: there is exactly one nearby symbol; the metadata attaches.
+- **Detached**: no valid symbol exists nearby; an informational diagnostic is shown.
+- **Ambiguous**: several candidates are equally close; an informational diagnostic lists them.
 
-## Ejemplo
+## Example
 
 ```ts
-// @ghost description: mejorar validación | status: todo
+// @ghost description: improve validation | status: todo
 
 function login() {}
 ```
 
 ```text
-login   (todo): mejorar validación
+login   (todo): improve validation
 ```
 
-A pesar de la línea en blanco entre el comentario y la función, GhostMap resuelve la metadata al símbolo `login` porque está dentro del radio configurado.
+Even with a blank line between the comment and the function, GhostMap resolves the metadata to `login` because it is inside the configured radius.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Symbol Validity Gate](/guide/symbol-validity-gate)** para entender qué nombres pueden convertirse en nodos del árbol.
+Continue with **[Symbol Validity Gate](/guide/symbol-validity-gate)** to understand which names can become nodes in the tree.

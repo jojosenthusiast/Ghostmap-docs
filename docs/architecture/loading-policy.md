@@ -1,29 +1,29 @@
 ---
 id: loading-policy
-title: Loading Policy (archivos grandes)
+title: Loading Policy (large files)
 sidebar_label: Loading Policy
 ---
 
-# Loading Policy (archivos grandes)
+# Loading Policy (large files)
 
-## Problema que resuelve
+## The problem it solves
 
-Sin límites, abrir un archivo enorme (decenas o cientos de miles de líneas) dispararía el pipeline completo de extracción y construcción del árbol en cada apertura o edición, lo que podría congelar la UI del editor.
+Without limits, opening a huge file (tens or hundreds of thousands of lines) would fire the full extraction and tree-building pipeline on every open or edit, which could freeze the editor UI.
 
-## Comportamiento
+## Behavior
 
-- Existe un presupuesto por defecto: `ghostmap.loading.maxAutoLines = 60000` (60,000 líneas).
-- Si un archivo supera ese presupuesto, el **refresco automático** (al abrir o editar) se omite por defecto: no se ejecuta un análisis "fresco".
-- Si existe un **snapshot previo válido** en el [Local State](/architecture/local-state), ese snapshot puede seguir mostrándose (UI "cacheada/stale") aunque no se recalcule.
-- El **refresco manual** (botón `Refresh`) sobre un archivo que excede el presupuesto **también se omite por defecto**, a menos que habilites explícitamente `ghostmap.loading.allowManualLargeFileRefresh = true`.
+- A default budget exists: `ghostmap.loading.maxAutoLines = 60000` (60,000 lines).
+- If a file exceeds that budget, the **automatic refresh** (on open or edit) is skipped by default: no fresh analysis is run.
+- If a **valid prior snapshot** exists in [Local State](/architecture/local-state), it can still be shown (cached/stale UI) even though no recompute happens.
+- The **manual refresh** (`Refresh` button) on a file that exceeds the budget is **also skipped by default**, unless you explicitly enable `ghostmap.loading.allowManualLargeFileRefresh = true`.
 
-## Qué verás si esto te afecta
+## What you will see if this affects you
 
-> "Este archivo tiene más de 60,000 líneas. GhostMap no recalculó el árbol automáticamente para evitar bloquear el editor. Si el árbol mostrado se ve desactualizado, puedes habilitar `ghostmap.loading.allowManualLargeFileRefresh` y usar `Refresh` manualmente."
+> "This file has more than 60,000 lines. GhostMap did not recompute the tree automatically to avoid blocking the editor. If the displayed tree looks stale, you can enable `ghostmap.loading.allowManualLargeFileRefresh` and use `Refresh` manually."
 
-> **Relación con v2:**
-> El [Ghost Index v2](/roadmap/vision-v2) apunta a reducir este límite con un índice persistente y actualización incremental, para evitar recalcular archivos completos al abrirlos. Incluso en V2 seguirán haciendo falta presupuestos, backpressure y pruebas de recuperación para proteger el Extension Host en archivos extremos.
+> **Relation to v2:**
+> The [Ghost Index v2](/roadmap/v2) aims to relax this limit with a persistent index and incremental updates, to avoid recomputing whole files on open. Even in V2, budgets, backpressure, and recovery tests will still be needed to protect the Extension Host on extreme files.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Local State](/architecture/local-state)** para entender la caché de continuidad por workspace.
+Continue with **[Local State](/architecture/local-state)** to understand the per-workspace continuity cache.

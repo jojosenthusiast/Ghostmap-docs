@@ -6,20 +6,20 @@ sidebar_label: Ghost Tree
 
 # Ghost Tree
 
-## Cómo se construye la jerarquía
+## How the hierarchy is built
 
-El árbol se construye por **contención de rangos**, no por nombres compuestos.
+The tree is built by **range containment**, not by composed names.
 
-**Regla de pertenencia:** el nodo A es padre de B si `A.start <= B.start` y `A.end > B.start`: es decir, B "nace" dentro del rango de A, aunque su cuerpo se extienda más allá.
+**Containment rule:** node A is the parent of B if `A.start <= B.start` and `A.end > B.start`. That is, B "is born" inside A's range, even if its body extends further.
 
-## Ejemplo combinando símbolos y anchors
+## Example combining symbols and anchors
 
 ```ts
-// @ghost #pagos start description: módulo de pagos v2 | status: in-progress
+// @ghost #payments start description: payments module v2 | status: in-progress
 
 class PaymentService {
 
-  // @ghost description: falta manejar timeouts | status: todo
+  // @ghost description: handle timeouts | status: todo
   charge() {}
 
   refund() {}
@@ -29,41 +29,41 @@ class PaymentService {
 ```
 
 ```text
-pagos                 (in-progress): módulo de pagos v2
+payments              (in-progress): payments module v2
 └── PaymentService
-    ├── charge        (todo): falta manejar timeouts
+    ├── charge        (todo): handle timeouts
     └── refund
 ```
 
-## Vista en VS Code
+## VS Code view
 
-El panel lateral "GhostMap" muestra el árbol con iconos por tipo de nodo:
+The "GhostMap" side panel shows the tree with icons per node type:
 
-- 🔵 Function/Method/Constructor → ícono de método (azul).
-- 🟣 Class/Interface/Struct/Enum → ícono de clase (morado).
-- 🟢 Anchor → ícono de bookmark (verde).
-- ⚪ Nodo "de contexto": visible solo porque un hijo coincide con un filtro/búsqueda activa → ícono atenuado con la etiqueta `(context)`.
+- Function / Method / Constructor: method icon (blue).
+- Class / Interface / Struct / Enum: class icon (purple).
+- Anchor: bookmark icon (green).
+- Context node (visible only because a child matches an active filter or search): dimmed icon with a `(context)` label.
 
-Hacer clic en un nodo navega directamente a la línea correspondiente y resalta brevemente el rango.
+Clicking a node navigates directly to the matching line and briefly highlights the range.
 
-## Comandos y toolbar
+## Commands and toolbar
 
-| Botón / Comando | Etiqueta | Notas |
+| Button / Command | Label | Notes |
 |---|---|---|
-| Refrescar árbol | `Refresh` | Re-ejecuta el pipeline para el documento activo (sujeto a [Loading Policy](/architecture/loading-policy)). |
-| Filtrar | `Filter` | Abre el menú de filtro por tipo o por status. |
-| Reiniciar filtros | `Reset` | Limpia tipo, status y búsqueda activos. |
-| Buscar | `Search` | Abre el input de búsqueda libre (nombre/descripción). |
+| Refresh the tree | `Refresh` | Re-runs the pipeline for the active document (subject to [Loading Policy](/architecture/loading-policy)). |
+| Filter | `Filter` | Opens the type or status filter menu. |
+| Reset filters | `Reset` | Clears the active type, status, and search. |
+| Search | `Search` | Opens the free search input (name or description). |
 
-Todos los comandos aparecen en la paleta de comandos de VS Code agrupados bajo la categoría **GhostMap** (por ejemplo, "GhostMap: Refresh", "GhostMap: Filter").
+All commands appear in the VS Code command palette grouped under the **GhostMap** category (for example, "GhostMap: Refresh", "GhostMap: Filter").
 
-## Filtros y búsqueda
+## Filters and search
 
-- **Filtro por tipo:** `function` / `class` / `anchor` / Todos.
-- **Filtro por status:** lista dinámica de los estados presentes en el proyecto, con conteo (`todo (5)`, `in-progress (2)`, etc.). El último filtro de status usado se recuerda entre sesiones.
-- **Búsqueda libre:** filtra por nombre o por contenido de `description` (sin distinguir mayúsculas/minúsculas).
-- **Visibilidad por burbuja:** si un hijo cumple el filtro/búsqueda, su(s) padre(s) permanecen visibles (marcados como "contexto") aunque no cumplan el filtro por sí mismos. Así nunca se pierde la ubicación del resultado dentro del árbol.
+- **Type filter:** `function` / `class` / `anchor` / All.
+- **Status filter:** a dynamic list of the statuses present in the project, with counts (`todo (5)`, `in-progress (2)`, etc.). The last status filter used is remembered across sessions.
+- **Free search:** filters by name or by `description` content (case-insensitive).
+- **Bubble visibility:** if a child matches the filter or search, its parent(s) stay visible (marked as "context") even if they do not match on their own. The location of the result is never lost inside the tree.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Diagnostics](/reference/diagnostics)** para ver qué advertencias puede mostrar GhostMap y cómo resolverlas.
+Continue with **[Diagnostics](/reference/diagnostics)** to see the warnings GhostMap can show and how to fix them.

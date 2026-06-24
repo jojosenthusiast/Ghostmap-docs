@@ -6,47 +6,47 @@ sidebar_label: Symbol Validity Gate
 
 # Symbol Validity Gate
 
-## Definición
+## Definition
 
-El **Symbol Validity Gate** es un filtro centralizado que decide si un nombre extraído del código puede convertirse en un nodo del árbol. Se aplica en **todas** las rutas de extracción (LSP, tree-sitter, regex fallback, PHP).
+The **Symbol Validity Gate** is a centralized filter that decides whether a name extracted from code can become a node in the tree. It applies on **every** extraction path (LSP, Tree-sitter, regex fallback, PHP).
 
-## Un nombre se rechaza si
+## A name is rejected if
 
-- Tiene menos de 2 caracteres, o es `<anonymous>` / empieza con `<`.
-- Es un identificador de 1–2 letras en minúscula (`e`, `cb`, `fn`...).
-- Está en la lista de "nombres ruido" (`NOISE_NAMES`): `callback`, `cb`, `fn`, `func`, `handler`, `resolve`, `reject`, `next`, `done`, `err`, `error`, `e`, `evt`, `event`, `res`, `req`, `ctx`, `data`, `item`, `then`, `catch`, `finally`, `body`, `args`, `kwargs`, `params`, `opts`, `options`.
-- Es una palabra reservada del lenguaje (lista cross-language: `if`, `class`, `function`, `return`, `async`, `self`, `this`, etc.: más de 100 palabras cubriendo JS/TS, Python, Rust, Go, Java, C#, C/C++, Ruby, SQL, entre otros).
+- It has fewer than 2 characters, or it is `<anonymous>` / starts with `<`.
+- It is a 1 to 2 letter lowercase identifier (`e`, `cb`, `fn`, etc.).
+- It is in the "noise names" list (`NOISE_NAMES`): `callback`, `cb`, `fn`, `func`, `handler`, `resolve`, `reject`, `next`, `done`, `err`, `error`, `e`, `evt`, `event`, `res`, `req`, `ctx`, `data`, `item`, `then`, `catch`, `finally`, `body`, `args`, `kwargs`, `params`, `opts`, `options`.
+- It is a reserved word of the language (a cross-language list of more than 100 words covering JS/TS, Python, Rust, Go, Java, C#, C/C++, Ruby, SQL, and others).
 
-## Por qué importa
+## Why it matters
 
-Esto explica por qué un callback anónimo (`.then(res => ...)`) o una función `function e() {}` **no** aparecen como nodos en el Ghost Tree. Es intencional, para evitar ruido.
+This explains why an anonymous callback (`.then(res => ...)`) or a function `function e() {}` **does not** appear as a node in the Ghost Tree. It is intentional, to avoid noise.
 
-## Ejemplos de código que intencionalmente NO genera nodos
+## Examples of code that intentionally does NOT create nodes
 
 ```ts
-// ❌ No aparece: nombre de 1-2 caracteres en minúscula
+// Does not appear: 1 to 2 character lowercase name
 function e() {}
 
-// ❌ No aparece: callback anónimo en .then()
+// Does not appear: anonymous callback in .then()
 fetchData().then(res => {
   console.log(res);
 });
 
-// ❌ No aparece: "data" está en NOISE_NAMES
+// Does not appear: "data" is in NOISE_NAMES
 const data = items.map(item => transform(item));
 
-// ❌ No aparece: "constructor" es palabra reservada / context-sensitive
+// Does not appear: "constructor" is reserved / context-sensitive
 class Foo {
   constructor() {}
 }
 
-// ✅ Sí aparece: nombre descriptivo, no reservado, no ruido
+// Does appear: descriptive name, not reserved, not noise
 function calculateMonthlyInterest(principal: number) {}
 ```
 
-> **Nota:**
-> Si una función o variable que esperabas ver no aparece en el árbol, probablemente cae en uno de estos casos: no es un error de GhostMap.
+> **Note:**
+> If a function or variable you expected to see is missing from the tree, it probably falls in one of these cases. It is not a GhostMap bug.
 
-## Siguiente paso
+## Next step
 
-Has completado la sección de Conceptos. Continúa con la **[Referencia de sintaxis](/reference/sintaxis)** para ver todas las formas válidas de escribir `@ghost`.
+You have finished the Guide section. Continue with the **[Syntax reference](/reference/syntax)** to see every valid form of `@ghost`.

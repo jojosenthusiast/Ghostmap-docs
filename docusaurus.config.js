@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'GhostMap',
   tagline: 'Project structure, inside your code.',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.png',
 
   future: {
     v4: true,
@@ -28,11 +28,6 @@ const config = {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
-  },
-
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
   },
 
   headTags: [
@@ -87,7 +82,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/ghost-logo.svg',
+      image: 'img/ghost-logo.png',
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: false,
@@ -104,7 +99,7 @@ const config = {
         title: 'GhostMap',
         logo: {
           alt: 'GhostMap logo',
-          src: 'img/ghost-logo.svg',
+          src: 'img/ghost-logo.png',
         },
         items: [
           {
@@ -113,9 +108,14 @@ const config = {
             position: 'left',
           },
           {
-            to: '/get-started/instalacion',
+            to: '/overview',
+            label: 'Overview',
             position: 'left',
-            label: 'Spanish details',
+          },
+          {
+            to: '/changelog',
+            label: 'Changelog',
+            position: 'left',
           },
           {
             href: 'mailto:getghostmap@proton.me',
@@ -123,7 +123,7 @@ const config = {
             position: 'right',
           },
           {
-            to: '/en/install',
+            to: '/install',
             label: 'Install',
             position: 'right',
             className: 'navbar-cta',
@@ -137,38 +137,19 @@ const config = {
             title: 'Product',
             items: [
               {label: 'Start', to: '/'},
-              {label: 'Install / Access', to: '/en/install'},
-              {label: 'Spanish details', to: '/get-started/instalacion'},
-              {label: 'Roadmap', to: '/roadmap/vision-v2'},
-              {label: 'Project status', to: '/status/estado-del-proyecto'},
-            ],
-          },
-          {
-            title: 'Spanish details',
-            items: [
-              {label: 'Instalación', to: '/get-started/instalacion'},
-              {label: 'Conceptos', to: '/guide/symbol'},
-              {label: 'Referencia', to: '/reference/sintaxis'},
-              {label: 'FAQ', to: '/faq'},
-            ],
-          },
-          {
-            title: 'English start pages',
-            items: [
-              {label: 'Home', to: '/'},
-              {label: 'Overview', to: '/en/overview'},
-              {label: 'Install / Access', to: '/en/install'},
-              {label: 'Legal & Support', to: '/en/legal-support'},
+              {label: 'Overview', to: '/overview'},
+              {label: 'Install', to: '/install'},
+              {label: 'Changelog', to: '/changelog'},
             ],
           },
           {
             title: 'Legal',
             items: [
+              {label: 'Legal & Support', to: '/legal-support'},
               {label: 'Privacy Policy', to: '/legal/privacy'},
               {label: 'Terms of Use', to: '/legal/terms'},
               {label: 'Third-Party Notices', to: '/legal/notices'},
               {label: 'Disclaimer', to: '/legal/disclaimer'},
-              {label: 'Legal questions (email)', href: 'mailto:getghostmap@proton.me'},
             ],
           },
           {

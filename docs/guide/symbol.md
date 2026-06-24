@@ -6,43 +6,43 @@ sidebar_label: Symbol
 
 # Symbol
 
-## Definición
+## Definition
 
-Un **Symbol** es la unidad semántica extraída del código fuente. Es la base de todo el sistema: GhostMap construye primero el mapa de símbolos del proyecto y luego le aplica la metadata Ghost.
+A **Symbol** is the semantic unit extracted from source code. It is the base of the whole system: GhostMap first builds the project's symbol map and then layers Ghost metadata on top.
 
-## Tipos de símbolo soportados
+## Supported symbol types
 
-GhostMap reconoce: **Class, Function, Method, Interface, Struct, Enum**.
+GhostMap recognizes **Class, Function, Method, Interface, Struct, and Enum**.
 
-Internamente se agrupan en dos categorías:
+Internally they group into two categories:
 
-- `'function'`: incluye Function, Method y Constructor.
-- `'class'`: incluye Class, Interface, Struct y Enum.
+- `'function'`: includes Function, Method, and Constructor.
+- `'class'`: includes Class, Interface, Struct, and Enum.
 
-## Cómo se extraen
+## How they are extracted
 
-GhostMap intenta, en este orden:
+GhostMap tries, in this order:
 
-1. **LSP** (`vscode.executeDocumentSymbolProvider`): si el lenguaje tiene un *language server* activo, es la fuente preferida.
-2. **Tree-sitter**: gramáticas WASM por lenguaje.
-3. **Regex fallback**: patrones por lenguaje cuando no hay LSP ni grammar de tree-sitter disponible (o falla el parseo).
-4. **PHP/Blade**: tiene su propio parser regex dedicado.
+1. **LSP** (`vscode.executeDocumentSymbolProvider`): if the language has an active language server, it is the preferred source.
+2. **Tree-sitter**: per-language WASM grammars.
+3. **Regex fallback**: per-language patterns when no LSP or Tree-sitter grammar is available (or when parsing fails).
+4. **PHP/Blade**: has its own dedicated regex parser.
 
-## Lenguajes soportados
+## Supported languages
 
 JavaScript, TypeScript, TSX, Python, PHP, Java, C#, Go, Rust, C, C++, Ruby, Dart, Elixir, Groovy, Julia, Objective-C, Scala, Solidity.
 
-## Ejemplo
+## Example
 
 ```ts
-// archivo: auth.service.ts
+// file: auth.service.ts
 export class AuthService {
   login() { /* ... */ }
   logout() { /* ... */ }
 }
 ```
 
-Resultado (simplificado):
+Result (simplified):
 
 ```text
 AuthService   (class)
@@ -50,8 +50,8 @@ AuthService   (class)
 └── logout    (function)
 ```
 
-Nota que este árbol existe **sin ninguna anotación `@ghost`**: es el mapa de símbolos puro. La metadata Ghost se le adjunta encima (ver [Ghost Metadata](/guide/ghost-metadata)).
+This tree exists **without any `@ghost` annotation**. It is the pure symbol map. Ghost metadata attaches on top of it (see [Ghost Metadata](/guide/ghost-metadata)).
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Ghost Metadata](/guide/ghost-metadata)** para ver cómo se adjunta información a estos símbolos.
+Continue with **[Ghost Metadata](/guide/ghost-metadata)** to see how information attaches to these symbols.

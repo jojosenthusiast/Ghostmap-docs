@@ -6,8 +6,6 @@ sidebar_label: Terms of Use
 
 # Terms of Use
 
-> **Nota:** Esta página está en inglés porque los términos tienen efecto contractual y deben ser inequívocos. La versión definitiva es la inglesa.
-
 **Effective date:** June 20, 2026 · **Version:** 1.2
 
 > **Short version:**
@@ -62,7 +60,7 @@ GhostMap incorporates third-party components, each licensed under its own terms.
 
 ## 9. Future roadmap and server services
 
-Future team-oriented capabilities and the integrations described in [Roadmap: Visión v2](/roadmap/vision-v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today**. Future commercial or server-service components, if released, will carry their own license terms and privacy notices, and will require an explicit opt-in before any data leaves a user's machine. Nothing in these Terms should be read as a commitment that such components will exist or that they will preserve the local-only posture of V1.
+Future team-oriented capabilities and the integrations described in [Roadmap: v2 vision](/roadmap/v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today**. Future commercial or server-service components, if released, will carry their own license terms and privacy notices, and will require an explicit opt-in before any data leaves a user's machine. Nothing in these Terms should be read as a commitment that such components will exist or that they will preserve the local-only posture of V1.
 
 ## 10. Privacy
 

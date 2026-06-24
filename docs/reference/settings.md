@@ -1,27 +1,27 @@
 ---
 id: settings
-title: Configuración / Settings
+title: Settings
 sidebar_label: Settings
 ---
 
-# Configuración
+# Settings
 
-GhostMap funciona con valores por defecto razonables. Puedes ajustar cualquiera de estos settings desde `settings.json` o desde la UI de Settings de VS Code (busca "GhostMap").
+GhostMap runs on sensible defaults. You can adjust any of these settings from `settings.json` or from the VS Code Settings UI (search for "GhostMap").
 
-## Comportamiento de anotaciones `@ghost`
+## `@ghost` annotation behavior
 
 ### `ghostmap.ownershipRadius`
 
 - **Default**: `5`
-- **Rango**: `1` a `20`
-- Número de líneas alrededor de una anotación `@ghost` en las que GhostMap busca un símbolo cercano para enlazar la descripción y el status. Se usa también en los diagnósticos `detached` y `ambiguous` y en el autocompletado contextual de `gh`+Tab.
-- Súbelo si escribes comentarios largos antes de una función. Bájalo si los anchors se enganchan al símbolo equivocado.
-- Ver [Ownership Radius](/guide/ownership-radius).
+- **Range**: `1` to `20`
+- Number of lines around a `@ghost` annotation in which GhostMap looks for a nearby symbol to attach the description and status. Also used in the `detached` and `ambiguous` diagnostics and in the contextual `gh`+Tab completion.
+- Raise it if you write long comments before a function. Lower it if anchors latch onto the wrong symbol.
+- See [Ownership Radius](/guide/ownership-radius).
 
 ### `ghostmap.statusColors`
 
-- **Default**: un mapa con `done`, `complete`, `completed`, `todo`, `pending`, `in-progress`, `progress`, `review`, `testing`, `blocked`, `error`, `critical` enlazados a los colores de chart del tema activo (verde, amarillo, azul, morado, rojo).
-- Permite añadir o redefinir el color de cualquier status custom. Las claves que no estén en el mapa se renderizan sin color de override.
+- **Default**: a map of `done`, `complete`, `completed`, `todo`, `pending`, `in-progress`, `progress`, `review`, `testing`, `blocked`, `error`, `critical` to the active theme's chart colors (green, yellow, blue, purple, red).
+- Lets you add or redefine the color of any custom status. Keys not in the map render without color override.
 
 ```json
 "ghostmap.statusColors": {
@@ -30,65 +30,65 @@ GhostMap funciona con valores por defecto razonables. Puedes ajustar cualquiera 
 }
 ```
 
-## Loading policy (presupuesto de archivos)
+## Loading policy (file budget)
 
 ### `ghostmap.loading.maxAutoLines`
 
 - **Default**: `60000`
-- **Mínimo**: `100`
-- Límite de líneas por archivo para el refresco automático. Archivos más grandes se marcan como `skipped` para mantener el editor responsivo. El scanner progresivo de GhostMap evalúa una regex por línea por patrón, así que el costo crece linealmente.
-- Súbelo si trabajas habitualmente con archivos generados de 100k+ líneas y tu máquina lo aguanta.
-- Ver [Loading Policy](/architecture/loading-policy).
+- **Minimum**: `100`
+- Per-file line cap for the automatic refresh. Larger files are flagged as `skipped` to keep the editor responsive. GhostMap's progressive scanner evaluates one regex per line per pattern, so the cost grows linearly.
+- Raise it if you regularly work with generated files of 100k+ lines and your machine can take it.
+- See [Loading Policy](/architecture/loading-policy).
 
 ### `ghostmap.loading.maxAutoBytes`
 
 - **Default**: `10000000` (10 MB)
-- **Mínimo**: `1024`
-- Límite de tamaño en bytes para el refresco automático. Cubre el caso donde un archivo no es enorme en líneas pero sí en bytes (minified JS, JSON grande). El fingerprint SHA-256 de un archivo de varios MB toma cientos de milisegundos por sí solo.
+- **Minimum**: `1024`
+- Per-file byte cap for the automatic refresh. Covers the case where a file is not huge in lines but is huge in bytes (minified JS, large JSON). The SHA-256 fingerprint of a multi-MB file alone takes hundreds of milliseconds.
 
 ### `ghostmap.loading.tinyLineThreshold`
 
 - **Default**: `50`
-- **Rango**: `0` a `500`
-- Archivos con esta cantidad de líneas o menos saltan la ventana de 200 ms de backpressure por cambio rápido de tabs (aparecen al instante en el árbol) y se evalúan también para detectar si están vacíos o solo contienen espacios.
-- Súbelo a 200+ si quieres que más archivos pequeños eviten el backpressure (tradeoff: menos coalescencia entre cambios rápidos consecutivos).
+- **Range**: `0` to `500`
+- Files with this many lines or fewer skip the 200 ms backpressure window for fast tab switches (they appear instantly in the tree) and are also evaluated to detect if they are empty or whitespace-only.
+- Raise to 200+ if you want more small files to skip backpressure (tradeoff: less coalescing across rapid consecutive switches).
 
 ### `ghostmap.loading.allowManualLargeFileRefresh`
 
 - **Default**: `false`
-- Cuando está en `true`, el comando manual **GhostMap: Refresh** ignora `maxAutoLines` y `maxAutoBytes`. Útil para investigar puntualmente un archivo generado sin tener que subir el presupuesto global.
+- When `true`, the manual command **GhostMap: Refresh** ignores `maxAutoLines` and `maxAutoBytes`. Useful for occasionally inspecting a generated file without raising the global budget.
 
-## Indexación en segundo plano
+## Background indexing
 
 ### `ghostmap.backgroundIndex.enabled`
 
 - **Default**: `false`
-- Activa una cola que escanea de forma oportunista archivos visibles y abiertos durante los momentos de inactividad. La concurrencia está fijada en 1 y la cola se limita a 128 entradas.
-- Está desactivada por defecto porque en máquinas bajo presión puede competir con el language server activo. Actívala si tienes RAM y CPU de sobra y quieres que las tabs a las que cambies tengan el árbol ya caliente.
+- Turns on a queue that opportunistically scans visible and open files during idle moments. Concurrency is fixed at 1 and the queue is capped at 128 entries.
+- Off by default because on memory-pressured machines it can compete with the active language server. Turn it on if you have RAM and CPU to spare and want tabs you switch to be warm.
 
-## Observabilidad
+## Observability
 
 ### `ghostmap.performanceLogging`
 
 - **Default**: `false`
-- Activa logging estructurado de eventos de activación y refresh en la consola del Extension Host. Los eventos aparecen en `Output → GhostMap`: tiempos de cada refresh, batches del scanner progresivo, warm-up del LSP, recuperaciones del watchdog, eventos de la cola de background, etc.
-- Pensado para debugging puntual cuando algo se siente lento. Combínalo con el badge de estado del header del panel para una imagen completa.
+- Enables structured logging of activation and refresh events in the Extension Host console. Events go to `Output → GhostMap`: timings per refresh, progressive scanner batches, LSP warm-up, watchdog recoveries, background queue events, and more.
+- Intended for occasional debugging when something feels slow. Combine with the status badge in the panel header for a full picture.
 
 ```json
 "ghostmap.performanceLogging": true
 ```
 
-## Comandos contribuidos
+## Contributed commands
 
-| Comando (Command Palette) | Para qué sirve |
+| Command (Command Palette) | What it does |
 |---|---|
-| `GhostMap: Refresh` | Fuerza un recálculo del documento activo. Con `allowManualLargeFileRefresh: true` puede saltarse los límites de tamaño. |
-| `GhostMap: Filter` | Filtra el árbol por status (o por tipo). |
-| `GhostMap: Search` | Filtra el árbol por substring de nombre/descripción. |
-| `GhostMap: Reset` | Limpia filtros y búsqueda activos. |
+| `GhostMap: Refresh` | Forces a recompute of the active document. With `allowManualLargeFileRefresh: true` it can bypass the size limits. |
+| `GhostMap: Filter` | Filters the tree by status (or by type). |
+| `GhostMap: Search` | Filters the tree by name/description substring. |
+| `GhostMap: Reset` | Clears active filters and search. |
 
-Todos los comandos aparecen también en la toolbar del panel **GhostMap**.
+All commands also appear on the **GhostMap** panel toolbar.
 
-## Siguiente paso
+## Next step
 
-Si quieres entender cómo funciona el pipeline por dentro, continúa con **[Arquitectura v1](/architecture/arquitectura-v1)**.
+If you want to understand how the pipeline works under the hood, continue with **[Architecture v1](/architecture/v1)**.

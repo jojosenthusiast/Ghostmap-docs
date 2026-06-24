@@ -1,51 +1,51 @@
 ---
 id: uninstall
-title: Cómo desinstalar
-sidebar_label: Desinstalar
+title: How to uninstall
+sidebar_label: Uninstall
 ---
 
-# Cómo desinstalar GhostMap
+# How to uninstall GhostMap
 
-Tres pasos: quitar la extensión, opcionalmente limpiar los settings, opcionalmente borrar el caché de workspaces.
+Three steps: remove the extension, optionally clean the settings, optionally delete the workspace caches.
 
-## 1. Quitar la extensión
+## 1. Remove the extension
 
-Desde VS Code:
+From VS Code:
 
-1. Abre el panel **Extensions** (`Ctrl+Shift+X` / `Cmd+Shift+X`).
-2. Busca **GhostMap**.
-3. Click en el engranaje, **Uninstall**.
+1. Open the **Extensions** panel (`Ctrl+Shift+X` / `Cmd+Shift+X`).
+2. Search **GhostMap**.
+3. Click the gear icon, **Uninstall**.
 
-Desde la línea de comandos:
+From the command line:
 
 ```bash
 code --uninstall-extension ghostmap.ghostmap
 ```
 
-VS Code te pedirá recargar la ventana. Después de eso, el panel y los comandos `GhostMap: *` desaparecen.
+VS Code will ask you to reload the window. After that the panel and the `GhostMap: *` commands disappear.
 
-## 2. (Opcional) Quitar los settings
+## 2. (Optional) Remove the settings
 
-VS Code conserva los settings de extensiones desinstaladas en caso de que reinstales. Si quieres limpiarlos:
+VS Code keeps settings for uninstalled extensions in case you reinstall. If you want to clean them:
 
-1. Abre `settings.json` (User o Workspace).
-2. Borra cualquier clave que empiece con `"ghostmap."`.
+1. Open `settings.json` (User or Workspace).
+2. Delete any key that starts with `"ghostmap."`.
 
-No hay efecto colateral; si reinstalas más tarde, GhostMap usará los valores por defecto.
+There is no side effect; if you reinstall later, GhostMap uses the defaults.
 
-## 3. (Opcional) Borrar los caches `.ghostmap/`
+## 3. (Optional) Delete the `.ghostmap/` caches
 
-GhostMap deja un archivo `.ghostmap/ghostmap.json` por workspace que tocaste. Si quieres limpiar todos:
+GhostMap leaves a `.ghostmap/ghostmap.json` file per workspace you touched. If you want to wipe them all:
 
 **Cross-platform (Node):**
 
 ```bash
-# Encuentra y elimina .ghostmap/ recursivamente desde un directorio raíz que contenga tus proyectos.
-# Cuidado con el alcance: este comando borra TODOS los .ghostmap que encuentre desde donde lo lances.
+# Find and remove .ghostmap/ recursively from a root directory that contains your projects.
+# Mind the scope: this command removes EVERY .ghostmap it finds from where you launch it.
 node -e "const fs=require('fs'),p=require('path');function walk(d){for(const f of fs.readdirSync(d,{withFileTypes:true})){const x=p.join(d,f.name);if(f.isDirectory()){if(f.name==='.ghostmap'){fs.rmSync(x,{recursive:true,force:true});console.log('deleted',x);}else if(f.name!=='node_modules'&&f.name!=='.git'){walk(x);}}}};walk(process.cwd());"
 ```
 
-O simplemente en cada workspace, manualmente:
+Or simply, in each workspace, manually:
 
 ```bash
 rm -rf .ghostmap/
@@ -55,15 +55,15 @@ rm -rf .ghostmap/
 Remove-Item -Recurse -Force .ghostmap\
 ```
 
-## Lo que NO hace falta tocar
+## What you do NOT need to touch
 
-- Las **gramáticas Tree-sitter** ya viven dentro de la carpeta de la extensión (`~/.vscode/extensions/ghostmap.ghostmap-<version>/`). Al desinstalar el extension, VS Code limpia esa carpeta automáticamente.
-- No hay variables de entorno, demonios, ni servicios en background. GhostMap solo vive como Extension Host process.
+- The **Tree-sitter grammars** already live inside the extension folder (`~/.vscode/extensions/ghostmap.ghostmap-<version>/`). When you uninstall the extension, VS Code cleans that folder automatically.
+- There are no environment variables, daemons, or background services. GhostMap only lives as an Extension Host process.
 
-## Reinstalar
+## Reinstall
 
-Si decides volver, los pasos son los mismos que la primera vez: ver [Instalación](/get-started/instalacion). Tu `.gitignore` y tus settings (si no los borraste) siguen donde estaban.
+If you decide to come back, the steps are the same as the first time: see [Install](/install). Your `.gitignore` and your settings (if you did not delete them) stay where they were.
 
-## ¿Por qué me iría?
+## Why would I leave?
 
-Si encontraste un problema, considera mandar un mail a [getghostmap@proton.me](mailto:getghostmap@proton.me) antes de irte. El proyecto está en desarrollo activo y los reports concretos son lo que hace que los gaps se cierren.
+If you hit a problem, consider sending a mail to [getghostmap@proton.me](mailto:getghostmap@proton.me) before going. The project is in active development and concrete reports are what close the gaps.

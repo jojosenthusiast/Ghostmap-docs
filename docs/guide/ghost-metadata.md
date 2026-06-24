@@ -6,29 +6,29 @@ sidebar_label: Ghost Metadata
 
 # Ghost Metadata
 
-## Definición
+## Definition
 
-**Ghost Metadata** es la información asociada a un símbolo. Contiene `description`, `status` y, potencialmente, atributos futuros.
+**Ghost Metadata** is information attached to a symbol. It carries `description`, `status`, and potentially future attributes.
 
-## Punto clave
+## Key point
 
-Un comentario `@ghost` **sin nombre** (`#nombre`) **no crea un nodo propio en el árbol**. Es pura metadata que se "pega" al símbolo más cercano.
+A `@ghost` comment **without a name** (`#name`) **does not create its own node in the tree**. It is pure metadata that attaches to the closest symbol.
 
-## Ejemplo
+## Example
 
 ```ts
-// @ghost description: validar tokens JWT | status: todo
+// @ghost description: validate jwt tokens | status: todo
 function login() {}
 ```
 
-Resultado en el árbol:
+Tree result:
 
 ```text
-login          (todo): validar tokens JWT
+login          (todo): validate jwt tokens
 ```
 
-**No** se genera un nodo independiente llamado `login` más un nodo Ghost separado. La metadata vive *dentro* del nodo `login`.
+It does **not** produce a separate `login` node plus a separate Ghost node. The metadata lives *inside* the `login` node.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Ghost Status](/guide/ghost-status)** para ver los valores soportados y cómo se normalizan.
+Continue with **[Ghost Status](/guide/ghost-status)** to see supported values and how they are normalized.

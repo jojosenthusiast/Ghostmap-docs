@@ -6,27 +6,27 @@ sidebar_label: Semantic Anchor
 
 # Semantic Anchor
 
-## Definición
+## Definition
 
-Un **Semantic Anchor** es un Anchor con nombre explícito (`#nombre`).
+A **Semantic Anchor** is an Anchor with an explicit name (`#name`).
 
-## Características
+## Properties
 
-- Tiene nombre propio (`#auth`, `#refactor-pagos`, etc.).
-- Aparece en el árbol como nodo propio.
-- Puede contener otros elementos (si se usa como [Range Anchor](/guide/range-anchor)).
-- Puede existir de forma totalmente independiente, sin estar pegado a ningún símbolo de código: por ejemplo, para una nota arquitectónica general.
+- It has its own name (`#auth`, `#refactor-payments`, etc.).
+- It appears in the tree as its own node.
+- It can contain other items (when used as a [Range Anchor](/guide/range-anchor)).
+- It can exist fully independent of any code symbol, for example as a general architectural note.
 
-## Ejemplo
+## Example
 
 ```ts
-// @ghost #auth description: validar JWT | status: todo
+// @ghost #auth description: validate jwt | status: todo
 ```
 
 ```text
-auth          (todo): validar JWT
+auth          (todo): validate jwt
 ```
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Contextual Anchor](/guide/contextual-anchor)**.
+Continue with **[Contextual Anchor](/guide/contextual-anchor)**.

@@ -6,8 +6,6 @@ sidebar_label: Privacy Policy
 
 # Privacy Policy
 
-> **Nota:** Esta página está en inglés porque la política tiene efecto contractual y debe ser inequívoca. La versión definitiva es la inglesa.
-
 **Effective date:** June 20, 2026 · **Version:** 1.1
 
 > **The whole policy in one line:**
@@ -62,7 +60,7 @@ This statement describes the current technical design and maintainer data postur
 
 ## 9. Future enterprise-oriented roadmap and server services
 
-The enterprise-oriented integrations described in [Roadmap: Visión v2](/roadmap/vision-v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today** and no part of GhostMap currently communicates with any of those services. Nothing in this policy should be read as a commitment that those integrations will exist, or that they will preserve the current local-only posture.
+The enterprise-oriented integrations described in [Roadmap: v2 vision](/roadmap/v2) (Jira / Slack flow, Ghost Threads, Ghost Graph, dashboards, AI explanations, permissions and audit log) are **not implemented today** and no part of GhostMap currently communicates with any of those services. Nothing in this policy should be read as a commitment that those integrations will exist, or that they will preserve the current local-only posture.
 
 If a future version of GhostMap ever introduces an optional feature that involves data collection or transmission (for example, an optional opt-in telemetry signal, or an Enterprise capability with server services), that feature will be:
 

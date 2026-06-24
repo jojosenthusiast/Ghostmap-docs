@@ -6,13 +6,13 @@ sidebar_label: Ghost Status
 
 # Ghost Status
 
-## Definición
+## Definition
 
-El **status** es el estado asociado a una metadata o a un anchor.
+The **status** is the state attached to a metadata block or to an anchor.
 
-## Valores soportados
+## Supported values
 
-Estos son los valores validados por el Code Action Provider y ofrecidos por autocompletado:
+These are the values validated by the Code Action Provider and offered by autocomplete:
 
 ```text
 todo
@@ -23,19 +23,19 @@ blocked
 pending
 ```
 
-## Normalización
+## Normalization
 
-El valor se normaliza automáticamente:
+The value is normalized automatically:
 
-- Se convierte a minúsculas.
-- Se recorta (sin espacios al inicio/fin).
-- Los espacios internos se convierten en guiones: `in progress` → `in-progress`.
+- Lowercased.
+- Trimmed (no leading or trailing spaces).
+- Internal spaces become dashes: `in progress` becomes `in-progress`.
 
-## Quick fixes relacionados
+## Related quick fixes
 
-- Si el valor no es uno de los soportados, GhostMap sugiere el más parecido (por prefijo) o `todo` por defecto.
-- Si la clave está mal escrita (por ejemplo `statu:` o `staus:`), se ofrece corregirla a `status:`.
+- If the value is not one of the supported ones, GhostMap suggests the closest match (by prefix) or defaults to `todo`.
+- If the key is misspelled (for example `statu:` or `staus:`), it offers a fix to `status:`.
 
-## Siguiente paso
+## Next step
 
-Continúa con **[Ghost Description](/guide/ghost-description)**.
+Continue with **[Ghost Description](/guide/ghost-description)**.

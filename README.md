@@ -25,44 +25,35 @@ The static output is written to `build/` and can be served from any static host.
 
 The docs site is deployed on Vercel at [https://ghostmap-docs.vercel.app/](https://ghostmap-docs.vercel.app/). Vercel builds from this repository's default branch using the standard Docusaurus build (`npm run build`, output in `build/`); see `docusaurus.config.js` for site configuration. Publish the marketing site after a docs deploy completes, because the marketing site links to the rendered docs routes.
 
-## Languages
-
-The root docs experience starts in English. Spanish has the detailed reference pages:
-
-- **English**: root start page plus short pages under `docs/en/`: overview,
-  install/access, and legal/support.
-- **Spanish**: detailed pages: requisitos, instalación, conceptos, sintaxis,
-  referencia de settings, arquitectura, estado del proyecto, roadmap.
-- **Legal documents (English-authoritative)**: `docs/legal/*` and the
-  shipped `LICENSE` / `THIRD_PARTY_NOTICES.txt` are in English as the
-  canonical legal version. The Spanish docs reference them, they are not
-  re-translated.
+Subpage routing relies on `vercel.json` setting `cleanUrls: true` together with `trailingSlash: false` in `docusaurus.config.js`: Docusaurus emits `path/page.html` and Vercel serves it at `/path/page`. If subpages 404 in production while local `build/` contains the file, verify the Vercel project setting **Output Directory** is empty (so `vercel.json`'s `outputDirectory: "build"` applies) and that **Clean URLs** is enabled.
 
 ## Content structure
 
-| Folder | Purpose |
+| Path | Purpose |
 |---|---|
-| `docs/intro.md` | English root start page. |
-| `docs/en/` | English overview, install/access, legal & support summary. |
-| `docs/get-started/` | Requisitos, instalación, primeros 5 minutos (ES). |
-| `docs/guide/` | Conceptos: symbols, anchors, ownership, validity gate, etc. (ES). |
-| `docs/reference/` | Syntax, Ghost Tree, diagnostics, settings, rendimiento (ES). |
-| `docs/architecture/` | Arquitectura v1, loading policy, local state (ES). |
-| `docs/roadmap/` | Visión v2 (ES). |
-| `docs/status/` | Estado del proyecto y limitaciones conocidas (ES). |
-| `docs/changelog.md` | User-visible release notes. |
-| `docs/legal/` | Privacy Policy, Terms of Use, Third-Party Notices, Disclaimer (English-authoritative). |
-| `sidebars.js` | Sidebar layout (English start first, then Spanish details). |
-| `docusaurus.config.js` | Site configuration (English default locale, navbar, and footer). |
+| `docs/intro.md` | Root start page (slug `/`). |
+| `docs/overview.md` | Product overview (slug `/overview`). |
+| `docs/install.md` | Install / access (slug `/install`). |
+| `docs/vsix-install.md` | Detailed VSIX install reference. |
+| `docs/get-started/` | Requirements and the first-5-minutes walkthrough. |
+| `docs/guide/` | Concepts: symbols, anchors, ownership, validity gate. |
+| `docs/reference/` | Syntax, Ghost Tree, diagnostics, settings, performance. |
+| `docs/architecture/` | V1 pipeline, loading policy, local state. |
+| `docs/roadmap/` | V2 vision. |
+| `docs/status/` | Project status and known limits. |
+| `docs/legal-support.md` | License summary and support contact (slug `/legal-support`). |
+| `docs/legal/` | Privacy Policy, Terms of Use, Third-Party Notices, Disclaimer. |
+| `docs/changelog.md` | Release notes. |
+| `docs/data-location.md`, `docs/troubleshooting.md`, `docs/faq.md`, `docs/glossary.md`, `docs/keyboard-shortcuts.md`, `docs/uninstall.md` | Standalone reference pages. |
+| `sidebars.js` | Sidebar layout. |
+| `docusaurus.config.js` | Site configuration. |
+| `vercel.json` | Build and redirect config for Vercel. |
 
 ## Contributing to the docs
 
-English pages are short start pages. Spanish pages hold the detailed product
-docs. The legal section and changelog are English-authoritative.
-
 To add a new page:
 
-1. Create the `.md` file under the appropriate `docs/<category>/` folder with a YAML frontmatter block (`id`, `title`, `sidebar_label`).
+1. Create the `.md` file under `docs/` (or the appropriate subfolder) with a YAML frontmatter block (`id`, `title`, `sidebar_label`, `slug`).
 2. Add the page id to `sidebars.js` under the right category.
 3. Run `npm run build` to verify the page renders and links resolve.
 4. Open a pull request.

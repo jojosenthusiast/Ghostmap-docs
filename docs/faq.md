@@ -1,101 +1,101 @@
 ---
 id: faq
-title: Preguntas frecuentes
+title: Frequently asked questions
 sidebar_label: FAQ
 ---
 
-# Preguntas frecuentes
+# Frequently asked questions
 
-## ¿En qué se diferencia de la vista "Outline" de VS Code?
+## How is this different from VS Code's "Outline" view?
 
-La vista Outline nativa de VS Code muestra los símbolos del archivo activo según el language server, sin más. GhostMap añade:
+The native Outline view shows the symbols of the active file from the language server, that is all. GhostMap adds:
 
-- **Fallback automático** cuando el language server no responde o no está disponible, usando Tree-sitter y regex. En los **19 lenguajes soportados** (ver [Requisitos](/get-started/requisitos)) esto suele significar que tienes árbol incluso cuando Outline aparece vacío. En lenguajes fuera de esa lista (workstream de expansión planificado, ver [Disclaimer](/legal/disclaimer)), no hay árbol: GhostMap no inventa estructura.
-- **Anotaciones `@ghost`** integradas al árbol: TODOs nombrados, regiones marcadas, descripciones con status, todo navegable.
-- **Snapshot persistente por archivo** entre sesiones: abrir un archivo previamente visto pinta el árbol en < 50 ms, no hay que esperar al LSP. Hoy esa caché es por documento, no un índice de workspace completo: eso es V2 (ver [Roadmap](/roadmap/vision-v2)).
-- **Scanner progresivo** para archivos de 60k líneas sin congelar el editor.
-- **Diagnósticos** sobre tus anchors y quick fixes.
+- **Automatic fallback** when the language server is not responding or not available, using Tree-sitter and regex. In the **19 supported languages** (see [Requirements](/get-started/requirements)) this usually means you still have a tree even when Outline is empty. In languages outside that list (planned expansion workstream, see [Disclaimer](/legal/disclaimer)) there is no tree: GhostMap does not invent structure.
+- **`@ghost` annotations** woven into the tree: named TODOs, marked regions, descriptions with status, all navigable.
+- **Per-file persistent snapshot** across sessions: opening a previously seen file paints the tree in < 50 ms; you do not have to wait for the LSP. Today that cache is per-document, not a full workspace index: that is V2 (see [Roadmap](/roadmap/v2)).
+- **Progressive scanner** for files of 60k lines without freezing the editor.
+- **Diagnostics** on your anchors plus quick fixes.
 
-Outline sigue siendo útil para lenguajes donde el LSP es excelente y no necesitas anchors. GhostMap es la opción cuando trabajas en archivos grandes, cambias de lenguaje constantemente, o quieres dejar marcas estructuradas en el código.
+Outline is still useful for languages where the LSP is excellent and you do not need anchors. GhostMap is the option when you work on large files, switch languages constantly, or want structured marks in your code.
 
-## ¿Requiere instalar algo aparte del extension?
+## Does it require anything besides the extension?
 
-No. Las 19 gramáticas Tree-sitter vienen pre-compiladas dentro de la extensión, no se descargan en tiempo de ejecución. Si tienes un language server activo para tu lenguaje, GhostMap lo aprovechará automáticamente; si no, usa el fallback. Ver [Requisitos](/get-started/requisitos).
+No. The 19 Tree-sitter grammars are pre-compiled inside the extension; they are not downloaded at runtime. If you have an active language server for your language, GhostMap will use it automatically; otherwise it uses the fallback. See [Requirements](/get-started/requirements).
 
-## ¿Funciona sin conexión a internet?
+## Does it work offline?
 
-Sí. GhostMap no hace ninguna llamada de red. Toda la extracción de símbolos, parseo de anchors, persistencia y análisis sucede localmente.
+Yes. GhostMap makes no network calls. All symbol extraction, anchor parsing, persistence, and analysis happens locally.
 
-## ¿Manda datos a algún servidor?
+## Does it send data to any server?
 
-No. La extensión no envía datos de proyecto (código, contenido de archivos, rutas, telemetría ni metadata) a mantenedores ni a servidores de GhostMap. Para una copia de la Privacy Policy vigente, escribir a [getghostmap@proton.me](mailto:getghostmap@proton.me).
+No. The extension does not send project data (code, file content, paths, telemetry, or metadata) to maintainers or to GhostMap servers. For a copy of the active Privacy Policy, write to [getghostmap@proton.me](mailto:getghostmap@proton.me).
 
-## ¿Funciona en VS Code Web / vscode.dev?
+## Does it work on VS Code Web / vscode.dev?
 
-De forma limitada. GhostMap se declara como `extensionKind: ["workspace"]`, lo que significa que requiere un host de extensión completo. En entornos virtuales como vscode.dev, el Ghost Tree funciona en memoria pero la persistencia a `.ghostmap/ghostmap.json` no está disponible.
+In a limited way. GhostMap declares itself as `extensionKind: ["workspace"]`, which means it requires a full extension host. In virtual environments like vscode.dev, the Ghost Tree works in memory but persistence to `.ghostmap/ghostmap.json` is not available.
 
-## ¿Qué pasa con la carpeta `.ghostmap/`?
+## What about the `.ghostmap/` folder?
 
-Es el caché local que GhostMap mantiene por workspace. Contiene los árboles snapshot de los archivos que has abierto. Ver [¿Dónde guarda los datos GhostMap?](/data-location) para más detalle.
+It is the local cache GhostMap keeps per workspace. It contains the snapshot trees for files you have opened. See [Where does GhostMap store data?](/data-location) for more detail.
 
-**¿Debería commitearla?** No. Añádela a `.gitignore`:
+**Should I commit it?** No. Add it to `.gitignore`:
 
 ```text
 .ghostmap/
 ```
 
-**¿Es seguro borrarla?** Sí. La próxima apertura de cada archivo paga el costo de extracción completa una vez y se vuelve a poblar.
+**Is it safe to delete?** Yes. The next open of each file pays the extraction cost once and the cache is repopulated.
 
-## ¿Por qué los archivos > 60k líneas se marcan como `[skipped]`?
+## Why are files > 60k lines flagged as `[skipped]`?
 
-Para mantener el editor responsivo. El scanner regex evalúa un patrón por línea por lenguaje, y arriba de ~60k líneas el costo acumulado degrada la responsividad. Si necesitas analizar un archivo más grande:
+To keep the editor responsive. The regex scanner evaluates one pattern per line per language, and above roughly 60k lines the accumulated cost degrades responsiveness. If you need to analyze a larger file:
 
-- Sube `ghostmap.loading.maxAutoLines`.
-- O activa `ghostmap.loading.allowManualLargeFileRefresh` y dispara el refresh manualmente con `GhostMap: Refresh`.
+- Raise `ghostmap.loading.maxAutoLines`.
+- Or enable `ghostmap.loading.allowManualLargeFileRefresh` and fire the refresh manually with `GhostMap: Refresh`.
 
-Ver [Settings](/reference/settings).
+See [Settings](/reference/settings).
 
-## ¿Por qué hay tantos "tiers" de lenguajes?
+## Why are there so many language "tiers"?
 
-Algunos lenguajes tienen gramáticas que un scanner basado en regex y Tree-sitter cubre completamente (Tier 1). Otros tienen features que requerirían un parser específico real (Tier 2, Tier 3). El [Disclaimer](/legal/disclaimer) detalla los gaps conocidos por lenguaje.
+Some languages have grammars that a regex- and Tree-sitter-based scanner covers fully (Tier 1). Others have features that would need a real specific parser (Tier 2, Tier 3). The [Disclaimer](/legal/disclaimer) details known gaps per language.
 
-## ¿Cuánto ocupa la extensión?
+## How big is the extension?
 
-La descarga es de unos 35 MB, dominados por las 19 gramáticas Tree-sitter en formato WASM. En memoria activa el costo es bajo: solo las gramáticas de los lenguajes que has tocado en la sesión se cargan.
+The download is about 35 MB, dominated by the 19 Tree-sitter grammars in WASM. Active memory cost is low: only the grammars for languages you have touched in the session are loaded.
 
-## ¿GhostMap usa IA?
+## Does GhostMap use AI?
 
-No en V1. Toda la extracción es determinista (LSP / Tree-sitter / regex). La V2 contempla features asistidos por IA (explicaciones automáticas, sugerencias de Range Anchors) pero serán opcionales y se anunciarán explícitamente cuando lleguen.
+Not in V1. All extraction is deterministic (LSP / Tree-sitter / regex). V2 contemplates AI-assisted features (automatic explanations, Range Anchor suggestions) but they will be optional and announced explicitly when they arrive.
 
-## ¿Cómo creo un Anchor?
+## How do I create an Anchor?
 
-La forma más rápida es escribir `gh` y presionar Tab sobre la línea anterior a un símbolo. El snippet genera un Contextual Anchor que se adjunta al símbolo más cercano. Ver [Primeros 5 minutos](/get-started/primeros-5-minutos) y [Sintaxis](/reference/sintaxis).
+The quickest way is to type `gh` and press Tab on the line above a symbol. The snippet generates a Contextual Anchor that attaches to the closest symbol. See [First 5 minutes](/get-started/first-5-minutes) and [Syntax](/reference/syntax).
 
-## ¿Puedo poner `@ghost` en un comentario de bloque `/* */`?
+## Can I put `@ghost` inside a block comment `/* */`?
 
-No en V1. Solo se reconocen comentarios de línea (`//` o `#`). Ver [Sintaxis: solo comentarios de línea](/reference/sintaxis#solo-comentarios-de-línea).
+Not in V1. Only line comments are recognized (`//` or `#`). See [Syntax: line comments only](/reference/syntax#line-comments-only).
 
-## ¿Hay atajos de teclado por defecto?
+## Are there default keyboard shortcuts?
 
-Sí, uno: **Ctrl+Alt+G** (**Cmd+Alt+G** en macOS) ejecuta `GhostMap: Refresh` mientras el editor tiene foco. Ver [Atajos de teclado](/keyboard-shortcuts).
+Yes, one: **Ctrl+Alt+G** (**Cmd+Alt+G** on macOS) runs `GhostMap: Refresh` while the editor has focus. See [Keyboard shortcuts](/keyboard-shortcuts).
 
-## ¿Qué licencia tiene GhostMap V1?
+## What license does GhostMap V1 use?
 
-GhostMap V1 se publica como **source-available** bajo la **GhostMap Free Non-Commercial License**: el código es legible y se permite el uso personal, educativo y de evaluación/testing sin costo. El uso comercial, empresarial, en producción o que genere ingresos requiere autorización por escrito (o un futuro flujo de licencia comercial): no está cubierto por esta licencia ni por donaciones. La visión Enterprise queda como roadmap futuro para integraciones de equipo; no es una funcionalidad disponible hoy. Ver los Términos de uso (incluidos en el repositorio como `LICENSE`; consultas a getghostmap@proton.me) y [Roadmap](/roadmap/vision-v2).
+GhostMap V1 ships as **source-available** under the **GhostMap Free Non-Commercial License**: the code is readable and personal, educational, and evaluation/testing use is free. Commercial, business, production, or revenue-generating use requires written authorization (or a future commercial license flow). Donations do not grant commercial rights. The Enterprise vision is roadmap, not shipped today. See the Terms of Use (shipped as `LICENSE`; questions to getghostmap@proton.me) and the [Roadmap](/roadmap/v2).
 
-## ¿Por qué no aparece GhostMap en VS Code Marketplace u Open VSX todavía?
+## Why is GhostMap not on VS Code Marketplace or Open VSX yet?
 
-Hoy GhostMap se instala por **VSIX local** construido desde el repo con `npx @vscode/vsce package`. GitHub Releases queda como canal planificado post-tag; todavía no hay release público.
+Today GhostMap installs via a **local VSIX** built from the repo with `npx @vscode/vsce package`. GitHub Releases is a planned post-tag channel; there is no public release yet.
 
-- **VS Code Marketplace: pendiente.** El paquete todavía no tiene `publisher` configurado en `package.json`; falta dar de alta el publisher en Marketplace y completar el primer `vsce publish`. Mientras tanto, instalar por VSIX es funcionalmente equivalente al Marketplace, solo que sin actualizaciones automáticas dentro del editor.
-- **Open VSX: planificado.** Será el puente para usuarios de **VSCodium, Cursor, Gitpod** y demás editores que consumen Open VSX en vez del Marketplace de Microsoft. Pensado para publicarse antes o en paralelo con la aprobación en Marketplace. El script de publicación (`publish:open-vsx`, que invoca `ovsx publish`) ya está preparado en `package.json` del repo `genesis`; falta registrar el namespace en open-vsx.org, generar el token y ejecutar el primer publish.
+- **VS Code Marketplace: pending.** The package does not have a `publisher` configured in `package.json` yet; the publisher has to be registered in Marketplace and the first `vsce publish` has to run. In the meantime, installing by VSIX is functionally equivalent to the Marketplace, just without automatic in-editor updates.
+- **Open VSX: planned.** It will be the bridge for users of **VSCodium, Cursor, Gitpod**, and other editors that consume Open VSX instead of Microsoft's Marketplace. Planned to publish before or in parallel with Marketplace approval. The publish script (`publish:open-vsx`, calling `ovsx publish`) is already prepared in `package.json` of the `genesis` repo; namespace registration in open-vsx.org, the token, and the first publish are pending.
 
-Mientras esos canales sean ⏳ pendientes / 🧭 planificados, la ruta oficial es la documentada en **[Instalación](/get-started/instalacion)** y **[Instalar desde VSIX](/vsix-install)**.
+While those channels are pending / planned, the official path is in **[Install](/install)** and **[Install from VSIX](/vsix-install)**.
 
-## ¿Cómo lo desinstalo?
+## How do I uninstall it?
 
-Ver [Cómo desinstalar](/uninstall).
+See [How to uninstall](/uninstall).
 
-## Siguiente paso
+## Next step
 
-Si tienes un problema específico, escríbenos a **getghostmap@proton.me** con los pasos para reproducirlo.
+If you have a specific problem, write to **getghostmap@proton.me** with reproduction steps.
